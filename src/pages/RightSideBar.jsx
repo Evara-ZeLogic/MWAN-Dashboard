@@ -11,6 +11,17 @@ import cut from "../../src/assets/rightSideBarIcons/cut.png";
 import group from "../../src/assets/rightSideBarIcons/group.png";
 import paste from "../../src/assets/rightSideBarIcons/paste.png";
 import userProfile from "../../src/assets/headerIcons/userProfile.png";
+import activePayment from "../../src/assets/statues/activeProjects.png";
+import closed from "../../src/assets/statues/closed.webp";
+import deletedProjects from "../../src/assets/statues/deletedProjects.webp";
+import financialClosed from "../../src/assets/statues/financialClosed.png";
+import future from "../../src/assets/statues/future.png";
+import idea from "../../src/assets/statues/idea.webp";
+import paused from "../../src/assets/statues/paused.webp";
+import payment from "../../src/assets/statues/payment.webp";
+import underClosing from "../../src/assets/statues/underClosing.png";
+import viewAll from "../../src/assets/statues/viewall.png";
+import withdraw from "../../src/assets/statues/withdraw.png";
 
 const RightSideBar = () => {
   return (
@@ -55,6 +66,34 @@ const RightSideBar = () => {
       <button className="w-5 h-10">
         <img src={paste} alt="sheet" className="w-[20px] h-[20px]" />
       </button>
+      <div className="w-[30px] h-[10px] border-b-[2px] border-[#4E4E4E]"></div>
+      <button className="w-5 h-10">
+        <img src={viewAll} alt="sheet" className="w-[20px] h-[20px]" />
+      </button>{" "}
+      <button className="w-5 h-10">
+        <img src={idea} alt="sheet" className="w-[20px] h-[20px]" />
+      </button>{" "}
+      <button className="w-5 h-10">
+        <img src={future} alt="sheet" className="w-[20px] h-[20px]" />
+      </button>{" "}
+      <button className="w-5 h-10">
+        <img src={activePayment} alt="sheet" className="w-[20px] h-[20px]" />
+      </button>{" "}
+      <button className="w-5 h-10">
+        <img src={deletedProjects} alt="sheet" className="w-[20px] h-[20px]" />
+      </button>{" "}
+      <button className="w-5 h-10">
+        <img src={paused} alt="sheet" className="w-[20px] h-[20px]" />
+      </button>{" "}
+      <button className="w-5 h-10">
+        <img src={withdraw} alt="sheet" className="w-[20px] h-[20px]" />
+      </button>{" "}
+      <button className="w-5 h-10">
+        <img src={underClosing} alt="sheet" className="w-[20px] h-[20px]" />
+      </button>{" "}
+      <button className="w-5 h-10">
+        <img src={closed} alt="sheet" className="w-[20px] h-[20px]" />
+      </button>{" "}
     </div>
   );
 };
