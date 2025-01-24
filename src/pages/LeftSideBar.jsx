@@ -8,6 +8,7 @@ import cloud from "../../src/assets/leftSideBarIcons/cloud.png";
 import documents from "../../src/assets/leftSideBarIcons/documents.png";
 import chat from "../../src/assets/leftSideBarIcons/chat.png";
 import edge from "../../src/assets/headerIcons/microsoftEdge.png";
+import { Link } from "react-router-dom";
 
 const LeftSideBar = () => {
   return (
@@ -36,9 +37,13 @@ const LeftSideBar = () => {
         <img src={cloud} alt="sheet" className="w-[20px] h-[20px]" />
       </button>
       <div className="w-[30px] h-[10px] border-b-[2px] border-[#4E4E4E]"></div>
-      <button className="w-5 h-10">
+      <Link
+        className="w-5 h-10 pt-3"
+        target="_blank"
+        to="http://pmo-mwan.vara360.com.s3-website-us-east-1.amazonaws.com"
+      >
         <img src={documents} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
+      </Link>
       <button className="w-5 h-10">
         <img src={chat} alt="sheet" className="w-[20px] h-[20px]" />
       </button>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Tab, Tabs, IconButton } from "@mui/material";
+import { Tab, Tabs } from "@mui/material";
 import mwan from "../assets/png/mwan.png";
 import PublicProjectsStatus from "../components/dashboardView/PublicProjectsStatus";
 import time from "../../src/assets/headerIcons/time.png";
@@ -49,16 +49,27 @@ const DashboardView = () => {
             <Tab label={<p>توزيع المناطق</p>} />
           </Tabs>
         </div>
-        <div className="flex gap-4" dir="ltr">
+        <div className="flex gap-4">
           <button>
-            <img src={time} alt="Time" className="w-[20px] h-[20px]" />
+            <img src={hide} alt="Hide" className="w-[20px] h-[20px]" />
           </button>
+
+          <div className="w-[5px] h-[25px] border-l-[2px] border-[#4E4E4E]"></div>
+
           <button>
             <img
-              src={favorites}
-              alt="Favorites"
+              src={validation}
+              alt="Validation"
               className="w-[20px] h-[20px]"
             />
+          </button>
+
+          <div className="w-[5px] h-[25px] border-l-[2px] border-[#4E4E4E]"></div>
+          <button>
+            <img src={filter} alt="Filter" className="w-[20px] h-[20px]" />
+          </button>
+          <button>
+            <img src={pin} alt="Pin" className="w-[20px] h-[20px]" />
           </button>
           <button>
             <img
@@ -68,22 +79,14 @@ const DashboardView = () => {
             />
           </button>
           <button>
-            <img src={pin} alt="Pin" className="w-[20px] h-[20px]" />
-          </button>
-          <button>
-            <img src={filter} alt="Filter" className="w-[20px] h-[20px]" />
-          </button>
-          <div className="w-[12px] h-[25px] border-l-[2px] border-[#4E4E4E]"></div>
-          <button>
             <img
-              src={validation}
-              alt="Validation"
+              src={favorites}
+              alt="Favorites"
               className="w-[20px] h-[20px]"
             />
           </button>
-          <div className="w-[12px] h-[25px] border-l-[2px] border-[#4E4E4E]"></div>
           <button>
-            <img src={hide} alt="Hide" className="w-[20px] h-[20px]" />
+            <img src={time} alt="Time" className="w-[20px] h-[20px]" />
           </button>
         </div>
       </div>
