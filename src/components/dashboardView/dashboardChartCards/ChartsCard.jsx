@@ -9,7 +9,7 @@ const ChartsCard = ({ width, heading, subHeading, options, children }) => {
       <header className="flex items-center justify-between">
         <div className="flex flex-col">
           <p className="text-[16px] font-bold">{heading}</p>
-          <p className="text-[14px]">{subHeading}</p>
+          <p className="text-[14px] text-[#c7c6c6]">{subHeading}</p>
         </div>
         {options ? options : null}
       </header>

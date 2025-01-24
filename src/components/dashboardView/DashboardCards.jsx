@@ -33,7 +33,7 @@ const Card = ({ title, value, img, bgColor }) => {
           style={{ backgroundColor: bgColor }}
         />
         <div className="flex flex-col">
-          <p className="text-[14px] text-[#F2F2F2]">{title}</p>
+          <p className="text-[14px] text-[#c7c6c6]">{title}</p>
           <p className="text-[16px] font-bold">{formNumbers(value)}</p>
         </div>
       </div>

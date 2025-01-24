@@ -29,7 +29,7 @@ export default function DonutChart({ data }) {
     const percentage = ((datum.value / total) * 100).toFixed(2);
 
     return (
-      <tspan style={{ fontSize: "12px", textAlign: "center" }}>
+      <tspan style={{ fontSize: "12px", textAlign: "center", fill: "white" }}>
         <tspan x="0" dy="0em">
           {datum.value}
         </tspan>
@@ -49,6 +49,7 @@ export default function DonutChart({ data }) {
           textAnchor="middle"
           dominantBaseline="central"
           className="text-lg font-bold font-cairo"
+          fill="white"
         >
           {total}
         </text>
@@ -58,6 +59,7 @@ export default function DonutChart({ data }) {
           textAnchor="middle"
           dominantBaseline="central"
           className="text-sm"
+          fill="white"
         >
           الكل
         </text>
@@ -85,7 +87,7 @@ export default function DonutChart({ data }) {
         cornerRadius={3}
         arcLinkLabelsTextOffset={5}
         activeOuterRadiusOffset={5}
-        arcLinkLabelsTextColor="#B7B7B7"
+        arcLinkLabelsTextColor="rgb(231, 231, 231)"
         arcLinkLabelsThickness={2}
         arcLinkLabelsColor={{ from: "color" }}
         arcLinkLabelsStraightLength={15}

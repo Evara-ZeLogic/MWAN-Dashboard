@@ -23,10 +23,8 @@ function CustomTooltip({ active, payload }) {
     const { name, value } = payload[1]?.payload || {};
     return (
       <div className="bg-[#1E1E1E] p-3 rounded-md text-right shadow-lg">
-        <p className="m-0 font-bold text-[12px] bg-[#1E1E1E]">{name}</p>
-        <p className="m-0 text-[#28A745] text-[12px] bg-[#1E1E1E]">
-          القيمة: {value}
-        </p>
+        <p className="m-0 font-bold text-[12px]">{name}</p>
+        <p className="m-0 text-[#28A745] text-[12px]">القيمة: {value}</p>
       </div>
     );
   }
@@ -56,7 +54,7 @@ export default function ProjectCoordinatorsBarChart() {
           dataKey="name"
           orientation="right"
           tickMargin={100}
-          tick={{ fill: "white", fontSize: 12 }}
+          tick={{ fill: "#c7c6c6", fontSize: 12 }}
           interval={0}
           axisLine={false}
           tickLine={false}

@@ -16,13 +16,13 @@ const DashboardHeader = () => {
     <header className="flex justify-between">
       <section>
         <p className="text-[16px] font-bold">إدارة مشروعات المركز الوطني</p>
-        <p className="text-[12px] text-[#F2F2F2]">
+        <p className="text-[12px] text-[#c7c6c6]">
           رؤية شاملة عن جميع المشروعات من منظور عام لجميع القطاعات
         </p>
       </section>
       <section className="flex justify-between w-[500px]">
         <div>
-          <p className="text-[12px]">الأقسام</p>
+          <p className="text-[12px] text-[#c7c6c6]">الأقسام</p>
           <Select
             labelId="section-label"
             id="section"
@@ -52,7 +52,7 @@ const DashboardHeader = () => {
           </Select>
         </div>
         <div>
-          <p className="text-[12px]">فترة العرض</p>
+          <p className="text-[12px] text-[#c7c6c6]">فترة العرض</p>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               sx={{
@@ -81,7 +81,7 @@ const DashboardHeader = () => {
           </LocalizationProvider>
         </div>
         <div>
-          <p className="text-[12px]">حالة المشاريع</p>
+          <p className="text-[12px] text-[#c7c6c6]">حالة المشاريع</p>
           <Select
             labelId="section-label"
             id="section"
@@ -111,7 +111,7 @@ const DashboardHeader = () => {
           </Select>
         </div>
         <div>
-          <p className="text-[12px]">تصنيف التعاقد</p>
+          <p className="text-[12px] text-[#c7c6c6]">تصنيف التعاقد</p>
           <Select
             labelId="section-label"
             id="section"
