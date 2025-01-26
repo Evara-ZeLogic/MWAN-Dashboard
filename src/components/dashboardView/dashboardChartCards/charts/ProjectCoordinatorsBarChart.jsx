@@ -8,9 +8,9 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-export default function ProjectCoordinatorsBarChart({ data }) {
+export default function ProjectCoordinatorsBarChart({ data, height }) {
   console.log("first", data);
-  const sortData = data.sort((a, b) => b.value - a.value);
+  // const sortData = data.sort((a, b) => b.value - a.value);
 
   function CustomTooltip({ active, payload }) {
     if (active && payload && payload.length) {
@@ -27,15 +27,22 @@ export default function ProjectCoordinatorsBarChart({ data }) {
   }
   const truncateName = (name) => {
     if (name.length > 11) {
-      return `${name.substring(0, 11)}...`;
+      return `${
+        data.length > 8
+          ? `${name.substring(0, 25)}... `
+          : `${name.substring(0, 12)}... `
+      }`;
     }
     return name;
   };
 
   return (
-    <ResponsiveContainer height={160} className="w-full bg-transparent">
+    <ResponsiveContainer
+      height={data.length > 8 ? 800 : 180}
+      className="w-full bg-transparent"
+    >
       <BarChart
-        data={sortData}
+        data={data}
         layout="vertical"
         margin={{ top: 0, right: 0, left: 5, bottom: 0 }}
         barGap={-14}
@@ -45,13 +52,13 @@ export default function ProjectCoordinatorsBarChart({ data }) {
           type="category"
           dataKey="name"
           orientation="right"
-          tickMargin={100}
+          tickMargin={data.length > 8 ? 180 : 100}
           tick={{ fill: "#c7c6c6", fontSize: 12 }}
           interval={0}
           axisLine={false}
           tickLine={false}
           tickFormatter={truncateName}
-          width={110}
+          width={data.length > 8 ? 200 : 110}
         />
         <Tooltip content={<CustomTooltip />} />
         <Bar
