@@ -1,7 +1,23 @@
 import { ResponsivePie } from "@nivo/pie";
-
+// import "./DonutChart.css";
 export default function DonutChart({ data }) {
-  const colors = ["#304FFD", "#FFD240", "#FD7972", "#FF965D"];
+  // const colors = ["#304FFD", "#FFD240", "#FD7972", "#FF965D"];
+  const colors = [
+    "#304FFD", // Blue
+    "#FFD240", // Yellow
+    "#FD7972", // Red
+    "#FF965D", // Orange
+    "#4CAF50", // Green
+    "#9C27B0", // Purple
+    "#00BCD4", // Cyan
+    "#990606", // Dark Red
+    "#8BC34A", // Light Green
+    "#FF5722", // Deep Orange
+    "#607D8B", // Blue Grey
+    "#E91E63", // Pink
+    "#673AB7", // Deep Purple
+  ];
+
   const total = data.reduce((acc, item) => acc + item.value, 0);
 
   function Tooltip({ datum }) {
@@ -77,10 +93,57 @@ export default function DonutChart({ data }) {
     },
   };
   return (
-    <section className="donut-chart-container h-40">
+    <section
+      className="donut-chart-container h-40"
+      // style={{ display: "flex" }}
+    >
+      {/* Custom Legends */}
+      {/* {data.length > 7 && (
+        <div
+          style={{
+            flex: 0.3,
+            maxHeight: "350px",
+            overflowY: "auto",
+            backgroundColor: "red",
+            fontSize: 12,
+          }}
+        >
+          {data.map((item) => (
+            <div
+              key={item.id}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "5px",
+              }}
+              className="gap-2"
+            >
+              <div
+                style={{
+                  width: "10px",
+                  height: "10px",
+                  backgroundColor: item.color || "#000", // Use the color from your data
+                  marginRight: "1px",
+                  borderRadius: "50%",
+                }}
+              />
+              <span
+                style={{
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                {item.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      )} */}
+
       <ResponsivePie
         data={data}
-        margin={{ top: 20, right: 0, bottom: 40, left: -180 }}
+        margin={{ top: 20, right: 0, bottom: 40, left: -150 }}
         innerRadius={0.76}
         sortByValue={true}
         padAngle={2}
@@ -96,27 +159,32 @@ export default function DonutChart({ data }) {
         tooltip={({ datum }) => <Tooltip datum={datum} />}
         arcLinkLabel={(datum) => <ArcLinkLabel datum={datum} />}
         colors={colors}
-        legends={[
-          {
-            anchor: "bottom",
-            direction: "column",
-            justify: false,
-            translateX: 185,
-            translateY: 8,
-            itemsSpacing: 12,
-            itemWidth: 300,
-            itemHeight: 15,
-            itemTextColor: "#FFF",
-            itemDirection: "right-to-left",
-            itemOpacity: 1,
-            symbolSize: 15,
-            symbolShape: "circle",
-            // itemTextStyle: {
-            //   fontFamily: "cairo",
-            //   fontSize: 16,
-            // },
-          },
-        ]}
+        legends={
+          // data.length < 7
+          //   ?
+          [
+            {
+              anchor: "bottom",
+              direction: "column",
+              justify: false,
+              translateX: 185,
+              translateY: data.length > 7 ? 22 : -30,
+              itemsSpacing: 12,
+              itemWidth: 300,
+              itemHeight: 10,
+              itemTextColor: "#FFF",
+              itemDirection: "right-to-left",
+              itemOpacity: 1,
+              symbolSize: 15,
+              symbolShape: "circle",
+              // itemTextStyle: {
+              //   fontFamily: "cairo",
+              //   fontSize: 16,
+              // },
+            },
+          ]
+          // : []
+        }
         layers={[
           "arcs",
           "arcLabels",
@@ -128,6 +196,14 @@ export default function DonutChart({ data }) {
         ]}
         theme={customTheme}
       />
+      <style>
+        {`
+          .nivo-legend {
+            max-height: 350px; /* Adjust height */
+            overflow-y: auto; /* Enable scrolling */
+          }
+        `}
+      </style>
     </section>
   );
 }

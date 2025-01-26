@@ -3,6 +3,11 @@ import { MenuItem, Select } from "@mui/material";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import {
+  contractClassification,
+  mainSections,
+  projectStatus,
+} from "../../data/pmo-data";
 
 const DashboardHeader = () => {
   const section = [
@@ -40,7 +45,7 @@ const DashboardHeader = () => {
               },
             }}
           >
-            {section?.map((option) => (
+            {mainSections?.map((option) => (
               <MenuItem
                 key={option.id}
                 value={option.id}
@@ -99,7 +104,7 @@ const DashboardHeader = () => {
               },
             }}
           >
-            {section?.map((option) => (
+            {projectStatus?.map((option) => (
               <MenuItem
                 key={option.id}
                 value={option.id}
@@ -130,7 +135,7 @@ const DashboardHeader = () => {
               },
             }}
           >
-            {section?.map((option) => (
+            {contractClassification?.map((option) => (
               <MenuItem
                 key={option.id}
                 value={option.id}

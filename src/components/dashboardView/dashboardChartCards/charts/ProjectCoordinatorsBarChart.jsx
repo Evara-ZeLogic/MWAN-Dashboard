@@ -8,30 +8,23 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const data = [
-  { name: "زبيدة جستنية", value: 10, background: 100 },
-  { name: "سمية الشوامين", value: 20, background: 100 },
-  { name: "تقي سامح", value: 50, background: 100 },
-  { name: "أحمد مصطفي", value: 70, background: 100 },
-  { name: "محمد العجمي", value: 85, background: 100 },
-  { name: "محمد أشرف", value: 100, background: 100 },
-].sort((a, b) => b.value - a.value);
+export default function ProjectCoordinatorsBarChart({ data }) {
+  console.log("first", data);
+  const sortData = data.sort((a, b) => b.value - a.value);
 
-function CustomTooltip({ active, payload }) {
-  if (active && payload && payload.length) {
-    const { name, value } = payload[1]?.payload || {};
-    return (
-      <div className="bg-[#1E1E1E] p-3 rounded-md text-right shadow-lg">
-        <p className="m-0 font-bold text-[12px]">{name}</p>
-        <p className="m-0 text-[#28A745] text-[12px]">القيمة: {value}</p>
-      </div>
-    );
+  function CustomTooltip({ active, payload }) {
+    if (active && payload && payload.length) {
+      const { name, value } = payload[1]?.payload || {};
+      return (
+        <div className="bg-[#1E1E1E] p-3 rounded-md text-right shadow-lg">
+          <p className="m-0 font-bold text-[12px]">{name}</p>
+          <p className="m-0 text-[#28A745] text-[12px]">القيمة: {value}</p>
+        </div>
+      );
+    }
+
+    return null;
   }
-
-  return null;
-}
-
-export default function ProjectCoordinatorsBarChart() {
   const truncateName = (name) => {
     if (name.length > 11) {
       return `${name.substring(0, 11)}...`;
@@ -42,7 +35,7 @@ export default function ProjectCoordinatorsBarChart() {
   return (
     <ResponsiveContainer height={160} className="w-full bg-transparent">
       <BarChart
-        data={data}
+        data={sortData}
         layout="vertical"
         margin={{ top: 0, right: 0, left: 5, bottom: 0 }}
         barGap={-14}

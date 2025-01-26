@@ -7,15 +7,17 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { projectStages } from "../../../../data/pmo-data";
 
-const data = [
-  { name: "تنفيذ المشروع", value: 10, background: 100 },
-  { name: "تخطيط المشروع", value: 20, background: 100 },
-  { name: "ملغي", value: 50, background: 100 },
-  { name: "قبل بدأ المشروع", value: 70, background: 100 },
-  { name: "الفارغ", value: 85, background: 100 },
-  { name: "الإغلاق", value: 100, background: 100 },
-].sort((a, b) => a.value - b.value);
+const chartData = projectStages.map((depart) => {
+  return {
+    id: depart.id,
+    name: depart.name,
+    value: depart.numOfProject,
+    background: 100,
+  };
+});
+const data = chartData.sort((a, b) => a.value - b.value);
 
 function CustomTooltip({ active, payload }) {
   if (active && payload && payload.length) {

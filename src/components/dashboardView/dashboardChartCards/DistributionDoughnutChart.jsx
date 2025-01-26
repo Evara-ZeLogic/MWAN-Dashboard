@@ -2,20 +2,22 @@ import React, { useState } from "react";
 import ChartsCard from "./ChartsCard";
 import DonutChart from "./charts/DonutChart";
 import { Tabs, Tab } from "@mui/material";
+import { mainSections, projectStatus } from "../../../data/pmo-data";
 
-const sectionsData = [
-  { id: 1, label: "نائب الرئيس", value: 333 },
-  { id: 2, label: "فارغ", value: 100 },
-  { id: 3, label: "نائب الرئيس", value: 190 },
-  { id: 4, label: "الرئيس الثاني", value: 228 },
-];
-const projectStausData = [
-  { id: 1, label: "اعداد كراسة الشروط", value: 260 },
-  { id: 2, label: "الاشعار بالترسية", value: 200 },
-  { id: 3, label: "تم الإلغاء", value: 120 },
-  { id: 4, label: "توقيع العقود", value: 308 },
-];
-
+const mainSectionsData = mainSections.map((depart) => {
+  return {
+    id: depart.id,
+    label: depart.name,
+    value: depart.numOfProject,
+  };
+});
+const projectStausData = projectStatus.map((depart) => {
+  return {
+    id: depart.id,
+    label: depart.name,
+    value: depart.numOfProject,
+  };
+});
 export default function DistributionDoughnutChart() {
   const [tabValue, setTabValue] = useState(0);
 
@@ -65,7 +67,7 @@ export default function DistributionDoughnutChart() {
       subHeading={"بالنسبة للأقسام وحالة التقدم"}
       options={<Options />}
     >
-      {tabValue === 0 && <DonutChart data={sectionsData} />}
+      {tabValue === 0 && <DonutChart data={mainSectionsData} />}
       {tabValue === 1 && <DonutChart data={projectStausData} />}
     </ChartsCard>
   );

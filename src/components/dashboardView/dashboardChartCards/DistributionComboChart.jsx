@@ -1,6 +1,7 @@
 import React from "react";
 import ChartsCard from "./ChartsCard";
 import LineBarChart from "./charts/LineBarChart";
+import { projectWallet } from "../../../data/pmo-data";
 
 const DistributionComboChart = () => {
   const data = [
@@ -28,6 +29,15 @@ const DistributionComboChart = () => {
       background: 20,
     },
   ];
+  const chartData = projectWallet.map((depart) => {
+    return {
+      id: depart.id,
+      name: depart.name,
+      value: depart.numOfProject,
+      lineValue: depart.numOfProject,
+      background: 57,
+    };
+  });
   return (
     <ChartsCard
       width={"32.7%"}
@@ -35,7 +45,7 @@ const DistributionComboChart = () => {
       subHeading={"عرض اجمالي المشاريع في كل محفظة مع الأهداف الاستراتيجية"}
     >
       <div className="h-40">
-        <LineBarChart data={data} />
+        <LineBarChart data={chartData} />
       </div>
     </ChartsCard>
   );
