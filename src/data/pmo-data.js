@@ -20,41 +20,37 @@ export const mainSections = [
   { id: 3, name: "نائب الرئيس للعمليات", numOfProject: 48 },
 ];
 export const projectStatus = [
-  { id: 1, name: "اعداد كراسة الشروط", numOfProject: 2, color: "#304FFD" },
-  { id: 2, name: "الاشعار بالترسية", numOfProject: 6, color: "#FFD240" },
+  { id: 1, name: "جاري دراسة فكرة المشروع", numOfProject: 2, color: "#304FFD" },
+  {
+    id: 2,
+    name: "ربط بالميزانية - معلق لحين تعزيز التكاليف",
+    numOfProject: 1,
+    color: "#FFD240",
+  },
   {
     id: 3,
-    name: "فتح العطاءات الفنية و المالية - للعرض على لجنة فحص العروض أو التحليل الفني ",
-    numOfProject: 19,
+    name: "طرح المشاريع",
+    numOfProject: 1,
     color: "#673AB7",
   },
-  { id: 4, name: "تم الإلغاء", numOfProject: 7, color: "#FF965D" },
+  {
+    id: 4,
+    name: "فتح العطاءات الفنية و المالية - للعرض على لجنة فحص العروض أو التحليل الفني",
+    numOfProject: 1,
+    color: "#FF965D",
+  },
   {
     id: 5,
-    name: "تم توقيع محضر إستلام المشروع",
-    numOfProject: 1,
+    name: "على المسار",
+    numOfProject: 11,
     color: "#4CAF50",
   },
   {
     id: 6,
-    name: "تم صرف المستخلص الختامي",
-    numOfProject: 41,
+    name: "ملغي",
+    numOfProject: 118,
     color: "#9C27B0",
   },
-  { id: 7, name: "توقيع العقود", numOfProject: 3, color: "#00BCD4" },
-  { id: 8, name: "جاري  إجراءات الاغلاق", numOfProject: 5, color: "#990606" },
-  { id: 9, name: "جاري دراسة فكرة المشروع", numOfProject: 1, color: "#8BC34A" },
-  {
-    id: 10,
-    name: "ربط بالميزانية - معلق لحين تعزيز التكاليف",
-    numOfProject: 17,
-    color: "#FF5722",
-  },
-  { id: 11, name: "طرح المشاريع", numOfProject: 1, color: "#607D8B" },
-  { id: 12, name: "على المسار", numOfProject: 4, color: "#E91E63" },
-
-  { id: 13, name: "تحت اجراءات الإلغاء", numOfProject: 1, color: "#FD7972" },
-  { id: 14, name: "متأخر", numOfProject: 2, color: "#855b02" },
 ];
 export const projectWallet = [
   {

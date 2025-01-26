@@ -129,7 +129,6 @@ const DashboardHeader = () => {
               width: "100px",
               borderRadius: "8px",
               backgroundColor: "#1E1E1E",
-
               "& .MuiOutlinedInput-notchedOutline": {
                 border: "none",
               },

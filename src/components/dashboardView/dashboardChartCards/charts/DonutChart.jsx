@@ -8,9 +8,9 @@ export default function DonutChart({ data }) {
     "#FD7972", // Red
     "#FF965D", // Orange
     "#4CAF50", // Green
+    "#990606", // Dark Red
     "#9C27B0", // Purple
     "#00BCD4", // Cyan
-    "#990606", // Dark Red
     "#8BC34A", // Light Green
     "#FF5722", // Deep Orange
     "#607D8B", // Blue Grey
@@ -168,7 +168,7 @@ export default function DonutChart({ data }) {
               direction: "column",
               justify: false,
               translateX: 185,
-              translateY: data.length > 7 ? 22 : -30,
+              translateY: -20,
               itemsSpacing: 12,
               itemWidth: 300,
               itemHeight: 10,
