@@ -9,6 +9,8 @@ import {
   projectOwnerMWAN,
   subDepart,
 } from "../../../data/pmo-data";
+import { Link } from "react-router-dom";
+import arrowIcon from "../../../assets/png/ArrowsOutSimple.png";
 
 const CoordinatorsBarChart = () => {
   const [filterType, setFilterType] = useState(1);
@@ -24,7 +26,7 @@ const CoordinatorsBarChart = () => {
       { id: 5, name: "الادارة الفرعية / الوحدة" },
     ];
     return (
-      <div>
+      <div className="flex gap-2 mb-1">
         {/* <p className="text-[12px] text-[#c7c6c6]">الأقسام</p> */}
         <Select
           labelId="filter-label"
@@ -35,7 +37,7 @@ const CoordinatorsBarChart = () => {
           sx={{
             fontFamily: "Cairo",
             fontSize: "12px",
-            height: "35px",
+            height: "40px",
             width: "200px",
             bgcolor: "#f8fafc",
             borderRadius: "8px",
@@ -55,6 +57,13 @@ const CoordinatorsBarChart = () => {
             </MenuItem>
           ))}
         </Select>
+        <Link to="/chart-full" state={filterType}>
+          <img
+            src={arrowIcon}
+            alt="icon"
+            className="w-10 h-10 p-2 rounded-lg bg-[#253C25]"
+          />
+        </Link>
       </div>
     );
   }
@@ -113,6 +122,8 @@ const CoordinatorsBarChart = () => {
       return [];
     }
   };
+  const sortData = chartdata().sort((a, b) => b.value - a.value);
+
   return (
     <ChartsCard
       width={"32.7%"}
@@ -120,7 +131,7 @@ const CoordinatorsBarChart = () => {
       subHeading={"عرض المشاريع بالنسبة لأسماء المنسقين"}
       options={<Options />}
     >
-      <ProjectCoordinatorsBarChart data={chartdata()} />
+      <ProjectCoordinatorsBarChart data={sortData.slice(0, 8)} />
     </ChartsCard>
   );
 };
