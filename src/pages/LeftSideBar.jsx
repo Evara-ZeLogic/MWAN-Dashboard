@@ -11,42 +11,42 @@ import edge from "../../src/assets/headerIcons/microsoftEdge.png";
 import { Link } from "react-router-dom";
 
 const LeftSideBar = () => {
+  const imageData = [
+    // { img: edge, alt: "Edge", hasDivider: true, to: "" },
+    { img: home, alt: "Home", hasDivider: false, to: "" },
+    { img: dashboard, alt: "Dashboard", hasDivider: false, to: "" },
+    { img: report, alt: "Report", hasDivider: false, to: "" },
+    { img: powerpoint, alt: "Powerpoint", hasDivider: true, to: "" },
+    { img: links, alt: "Links", hasDivider: false, to: "" },
+    { img: cloud, alt: "Cloud", hasDivider: true, to: "" },
+    {
+      img: documents,
+      alt: "Documents",
+      hasDivider: false,
+      to: "http://pmo-mwan.vara360.com.s3-website-us-east-1.amazonaws.com",
+    },
+    { img: chat, alt: "Chat", hasDivider: false, to: "" },
+  ];
   return (
-    <div className="h-full flex flex-col items-center">
-      <button className="w-5 h-10">
-        <img src={edge} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <div className="w-full border-b-[1px] border-[#4E4E4E] mt-2"></div>
-      <button className="w-5 h-10">
-        <img src={home} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <button className="w-5 h-10 ">
-        <img src={dashboard} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <button className="w-5 h-10">
-        <img src={report} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <button className="w-5 h-10">
-        <img src={powerpoint} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <div className="w-[30px] h-[10px] border-b-[2px] border-[#4E4E4E]"></div>
-      <button className="w-5 h-10">
-        <img src={links} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <button className="w-5 h-10">
-        <img src={cloud} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <div className="w-[30px] h-[10px] border-b-[2px] border-[#4E4E4E]"></div>
-      <Link
-        className="w-5 h-10 pt-3"
-        target="_blank"
-        to="http://pmo-mwan.vara360.com.s3-website-us-east-1.amazonaws.com"
-      >
-        <img src={documents} alt="sheet" className="w-[20px] h-[20px]" />
+    <div className="h-full flex flex-col items-center pt-2">
+      <Link className="h-[31px] flex items-center" to="">
+        <img src={edge} alt="edge" className="w-[20px] h-[20px]" />
       </Link>
-      <button className="w-5 h-10">
-        <img src={chat} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
+
+      <div className="w-[46px] h-[10px] border-b-[1px] border-[#4E4E4E] mb-2"></div>
+
+      {imageData.map((img, index) => {
+        return (
+          <>
+            <Link className="h-8" to={img.to} key={index}>
+              <img src={img.img} alt={img.alt} className="w-[20px] h-[20px]" />
+            </Link>
+            {img.hasDivider && (
+              <div className="w-[30px] h-[10px] border-b-[1px] border-[#4E4E4E] mb-2"></div>
+            )}
+          </>
+        );
+      })}
     </div>
   );
 };

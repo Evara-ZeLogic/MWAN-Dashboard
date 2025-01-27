@@ -17,6 +17,16 @@ const DashboardView = () => {
     setTabValue(value);
   }
 
+  const imageData = [
+    { img: time, alt: "time", hasDivider: false },
+    { img: favorites, alt: "favorites", hasDivider: false },
+    { img: searchDocs, alt: "searchDocs", hasDivider: false },
+    { img: pin, alt: "pin", hasDivider: false },
+    { img: filter, alt: "filter", hasDivider: true },
+    { img: validation, alt: "validation", hasDivider: true },
+    { img: hide, alt: "hide", hasDivider: false },
+  ];
+
   return (
     <>
       <div className="w-full flex items-center justify-between border-b-[1px] border-[#414141] px-2">
@@ -49,45 +59,23 @@ const DashboardView = () => {
             <Tab label={<p>توزيع المناطق</p>} />
           </Tabs>
         </div>
-        <div className="flex gap-4">
-          <button>
-            <img src={hide} alt="Hide" className="w-[20px] h-[20px]" />
-          </button>
-
-          <div className="w-[5px] h-[25px] border-l-[2px] border-[#4E4E4E]"></div>
-
-          <button>
-            <img
-              src={validation}
-              alt="Validation"
-              className="w-[20px] h-[20px]"
-            />
-          </button>
-
-          <div className="w-[5px] h-[25px] border-l-[2px] border-[#4E4E4E]"></div>
-          <button>
-            <img src={filter} alt="Filter" className="w-[20px] h-[20px]" />
-          </button>
-          <button>
-            <img src={pin} alt="Pin" className="w-[20px] h-[20px]" />
-          </button>
-          <button>
-            <img
-              src={searchDocs}
-              alt="Search Docs"
-              className="w-[20px] h-[20px]"
-            />
-          </button>
-          <button>
-            <img
-              src={favorites}
-              alt="Favorites"
-              className="w-[20px] h-[20px]"
-            />
-          </button>
-          <button>
-            <img src={time} alt="Time" className="w-[20px] h-[20px]" />
-          </button>
+        <div className="flex gap-4 flex-row-reverse">
+          {imageData.map((img, index) => {
+            return (
+              <>
+                <button key={index}>
+                  <img
+                    src={img.img}
+                    alt={img.alt}
+                    className="w-[20px] h-[20px]"
+                  />
+                </button>
+                {img.hasDivider && (
+                  <div className="w-[5px] h-[25px] border-l-[2px] border-[#4E4E4E]"></div>
+                )}
+              </>
+            );
+          })}
         </div>
       </div>
 

@@ -24,76 +24,53 @@ import viewAll from "../../src/assets/statues/viewall.png";
 import withdraw from "../../src/assets/statues/withdraw.png";
 
 const RightSideBar = () => {
+  const imageData = [
+    // { img: userProfile, alt: "user profile", hasDivider: true },
+    { img: sheeView, alt: "sheet view", hasDivider: false },
+    { img: projectView, alt: "project view", hasDivider: true },
+    { img: select, alt: "select", hasDivider: false },
+    { img: open, alt: "open", hasDivider: false },
+    { img: insert, alt: "insert", hasDivider: true },
+    { img: addNew, alt: "add new", hasDivider: false },
+    { img: edit, alt: "edit", hasDivider: false },
+    { img: remove, alt: "remove", hasDivider: true },
+    { img: cut, alt: "cut", hasDivider: false },
+    { img: group, alt: "group", hasDivider: false },
+    { img: paste, alt: "paste", hasDivider: true },
+    { img: viewAll, alt: "view all", hasDivider: false },
+    { img: idea, alt: "idea", hasDivider: false },
+    { img: future, alt: "future", hasDivider: false },
+    { img: activePayment, alt: "active payment", hasDivider: false },
+    { img: deletedProjects, alt: "deleted projects", hasDivider: false },
+    { img: paused, alt: "paused", hasDivider: false },
+    { img: withdraw, alt: "withdraw", hasDivider: false },
+    { img: underClosing, alt: "under closing", hasDivider: false },
+    { img: closed, alt: "closed", hasDivider: false },
+  ];
+
   return (
-    <div className="h-full flex flex-col items-center">
-      <button className="w-5 h-10">
-        <img src={userProfile} alt="sheet" className="w-[20px] h-[20px] mt-1" />
+    <div className="h-full flex flex-col items-center pt-2">
+      <button className="h-[31px] ">
+        <img
+          src={userProfile}
+          alt="userProfile"
+          className="w-[20px] h-[20px]"
+        />
       </button>
-      <div className="w-full border-b-[1px] border-[#4E4E4E] mt-2"></div>
-      <button className="w-5 h-10">
-        <img src={sheeView} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <button className="w-5 h-10 ">
-        <img src={projectView} alt="sheet" className="w-[25px] h-[25px]" />
-      </button>
-      <div className="w-[30px] h-[10px] border-b-[2px] border-[#4E4E4E]"></div>
-      <button className="w-5 h-10">
-        <img src={select} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <button className="w-5 h-10">
-        <img src={open} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <button className="w-5 h-10">
-        <img src={insert} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <div className="w-[30px] h-[10px] border-b-[2px] border-[#4E4E4E]"></div>
-      <button className="w-5 h-10">
-        <img src={addNew} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <button className="w-5 h-10">
-        <img src={edit} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <button className="w-5 h-10">
-        <img src={remove} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <div className="w-[30px] h-[10px] border-b-[2px] border-[#4E4E4E]"></div>
-      <button className="w-5 h-10">
-        <img src={cut} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <button className="w-5 h-10">
-        <img src={group} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <button className="w-5 h-10">
-        <img src={paste} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>
-      <div className="w-[30px] h-[10px] border-b-[2px] border-[#4E4E4E]"></div>
-      <button className="w-5 h-10">
-        <img src={viewAll} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>{" "}
-      <button className="w-5 h-10">
-        <img src={idea} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>{" "}
-      <button className="w-5 h-10">
-        <img src={future} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>{" "}
-      <button className="w-5 h-10">
-        <img src={activePayment} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>{" "}
-      <button className="w-5 h-10">
-        <img src={deletedProjects} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>{" "}
-      <button className="w-5 h-10">
-        <img src={paused} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>{" "}
-      <button className="w-5 h-10">
-        <img src={withdraw} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>{" "}
-      <button className="w-5 h-10">
-        <img src={underClosing} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>{" "}
-      <button className="w-5 h-10">
-        <img src={closed} alt="sheet" className="w-[20px] h-[20px]" />
-      </button>{" "}
+      <div className="w-[45px] h-[10px] border-b-[1px] border-[#4E4E4E]"></div>
+
+      {imageData.map((img, index) => {
+        return (
+          <>
+            <button className="w-5 h-10" key={index}>
+              <img src={img.img} alt={img.alt} className="w-[20px] h-[20px]" />
+            </button>
+            {img.hasDivider && (
+              <div className="w-[30px] h-[10px] border-b-[1px] border-[#4E4E4E]"></div>
+            )}
+          </>
+        );
+      })}
     </div>
   );
 };
