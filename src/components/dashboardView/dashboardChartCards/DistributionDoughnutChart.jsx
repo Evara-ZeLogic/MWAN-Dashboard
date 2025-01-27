@@ -3,6 +3,7 @@ import ChartsCard from "./ChartsCard";
 import DonutChart from "./charts/DonutChart";
 import { Tabs, Tab } from "@mui/material";
 import { mainSections, projectStatus } from "../../../data/pmo-data";
+import DonutChart2 from "./charts/DonutChart2";
 
 const mainSectionsData = mainSections.map((depart) => {
   return {
@@ -67,8 +68,11 @@ export default function DistributionDoughnutChart() {
       subHeading={"بالنسبة للأقسام وحالة التقدم"}
       options={<Options />}
     >
-      {tabValue === 0 && <DonutChart data={mainSectionsData} />}
-      {tabValue === 1 && <DonutChart data={projectStausData} />}
+      {/* {tabValue === 0 && <DonutChart data={mainSectionsData} />}
+      {tabValue === 1 && <DonutChart data={projectStausData} />} */}
+
+      {tabValue === 0 && <DonutChart2 data={mainSectionsData} />}
+      {tabValue === 1 && <DonutChart2 data={projectStausData} />}
     </ChartsCard>
   );
 }
