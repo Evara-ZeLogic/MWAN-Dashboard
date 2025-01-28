@@ -8,6 +8,9 @@ import pin from "../../src/assets/headerIcons/pin.png";
 import filter from "../../src/assets/headerIcons/filter.png";
 import validation from "../../src/assets/headerIcons/validation.png";
 import hide from "../../src/assets/headerIcons/hide.png";
+import FinancialOverview from "../components/dashboardView/financialOverview";
+// import DashboardHeader from "../components/dashboardView/DashboardHeader";
+// import DashboardCards from "../components/dashboardView/DashboardCards";
 
 const DashboardView = () => {
   const [tabValue, setTabValue] = useState(0);
@@ -76,10 +79,14 @@ const DashboardView = () => {
           })}
         </div>
       </div>
+      {/* <div className="w-[98%] overflow-y-hidden m-3 flex gap-3 flex-col">
+        <DashboardHeader />
+        <DashboardCards />
+      </div> */}
 
       <div className={`w-[98%] overflow-y-hidden m-3`}>
         {tabValue === 0 && <PublicProjectsStatus />}
-        {tabValue === 1 && <div></div>}
+        {tabValue === 1 && <FinancialOverview />}
         {tabValue === 2 && <div></div>}
         {tabValue === 3 && <div></div>}
       </div>

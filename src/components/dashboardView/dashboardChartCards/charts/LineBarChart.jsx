@@ -8,6 +8,7 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
+  LabelList,
 } from "recharts";
 
 function CustomTooltip({ active, payload }) {
@@ -75,6 +76,25 @@ function CustomXAxisTick({ x, y, payload }) {
   );
 }
 
+// const renderCustomizedLabel = (props) => {
+//   const { x, y, width, height, value } = props;
+
+//   return (
+//     <g>
+//       <circle cx={x + width / 2} cy={y} fillOpacity={0} />
+//       <text
+//         x={x + width / 2}
+//         y={y - 14}
+//         fill="#009E4F"
+//         textAnchor="middle"
+//         dominantBaseline="middle"
+//       >
+//         {2}
+//       </text>
+//     </g>
+//   );
+// };
+
 export default function LineBarChart({ data }) {
   return (
     <ResponsiveContainer height={160} className="w-full translate-x-8">
@@ -106,7 +126,9 @@ export default function LineBarChart({ data }) {
           opacity={0.2}
           barSize={14}
           radius={[8, 8, 8, 8]}
-        />
+        >
+          {/* <LabelList dataKey="name" content={renderCustomizedLabel} /> */}
+        </Bar>
         <Bar
           dataKey="value"
           fill="#009E4F"
