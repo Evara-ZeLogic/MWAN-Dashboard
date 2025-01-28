@@ -45,7 +45,8 @@ const LeftSideBar = () => {
       img: documents,
       alt: "Documents",
       hasDivider: false,
-      to: "http://pmo-mwan.vara360.com.s3-website-us-east-1.amazonaws.com",
+      path: "http://pmo-mwan.vara360.com.s3-website-us-east-1.amazonaws.com",
+      target: "_blank",
     },
     { img: chat, alt: "Chat", hasDivider: false, path: "" },
   ];

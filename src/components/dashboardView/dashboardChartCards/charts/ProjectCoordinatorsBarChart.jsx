@@ -38,7 +38,7 @@ export default function ProjectCoordinatorsBarChart({ data, height }) {
 
   return (
     <ResponsiveContainer
-      height={data.length > 8 ? 800 : 180}
+      height={data.length > 8 ? 800 : 170}
       className="w-full bg-transparent"
     >
       <BarChart
