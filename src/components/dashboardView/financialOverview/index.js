@@ -36,7 +36,7 @@ export default function FinancialOverview() {
           subHeading={"عرض اجمالي قيم المشاريع بالنسبة للإدارات المختلفة"}
         >
           <div className="h-40">
-            <LineBarChart data={chartData} />
+            <LineBarChart data={chartData} labeled />
           </div>
         </ChartsCard>
         <ChartsCard

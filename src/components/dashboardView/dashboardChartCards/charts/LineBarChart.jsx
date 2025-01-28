@@ -76,26 +76,26 @@ function CustomXAxisTick({ x, y, payload }) {
   );
 }
 
-// const renderCustomizedLabel = (props) => {
-//   const { x, y, width, height, value } = props;
+const renderCustomizedLabel = (customValue) => (props) => {
+  const { x, y, width } = props;
 
-//   return (
-//     <g>
-//       <circle cx={x + width / 2} cy={y} fillOpacity={0} />
-//       <text
-//         x={x + width / 2}
-//         y={y - 14}
-//         fill="#009E4F"
-//         textAnchor="middle"
-//         dominantBaseline="middle"
-//       >
-//         {2}
-//       </text>
-//     </g>
-//   );
-// };
+  return (
+    <g>
+      <circle cx={x + width / 2} cy={y} fillOpacity={0} />
+      <text
+        x={x + width / 2}
+        y={y - 14}
+        fill="#009E4F"
+        textAnchor="middle"
+        dominantBaseline="middle"
+      >
+        {customValue}
+      </text>
+    </g>
+  );
+};
 
-export default function LineBarChart({ data }) {
+export default function LineBarChart({ data, labeled }) {
   return (
     <ResponsiveContainer height={160} className="w-full translate-x-8">
       <ComposedChart
@@ -127,7 +127,9 @@ export default function LineBarChart({ data }) {
           barSize={14}
           radius={[8, 8, 8, 8]}
         >
-          {/* <LabelList dataKey="name" content={renderCustomizedLabel} /> */}
+          {labeled && (
+            <LabelList dataKey="name" content={renderCustomizedLabel("2.5M")} />
+          )}
         </Bar>
         <Bar
           dataKey="value"
