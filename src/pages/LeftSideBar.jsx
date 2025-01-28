@@ -13,23 +13,45 @@ import { Link } from "react-router-dom";
 const LeftSideBar = () => {
   const imageData = [
     // { img: edge, alt: "Edge", hasDivider: true, to: "" },
-    { img: home, alt: "Home", hasDivider: false, to: "" },
-    { img: dashboard, alt: "Dashboard", hasDivider: false, to: "" },
-    { img: report, alt: "Report", hasDivider: false, to: "" },
-    { img: powerpoint, alt: "Powerpoint", hasDivider: true, to: "" },
-    { img: links, alt: "Links", hasDivider: false, to: "" },
-    { img: cloud, alt: "Cloud", hasDivider: true, to: "" },
+    {
+      img: home,
+      alt: "Home",
+      hasDivider: false,
+      path: "http://mwan-apps.vara360.com.s3-website-us-east-1.amazonaws.com",
+      target: "_blank",
+    },
+    {
+      img: dashboard,
+      alt: "Dashboard",
+      hasDivider: false,
+      path: "/",
+      target: "",
+    },
+    {
+      img: report,
+      alt: "Report",
+      hasDivider: false,
+      path: "",
+    },
+    {
+      img: powerpoint,
+      alt: "Powerpoint",
+      hasDivider: true,
+      path: "",
+    },
+    { img: links, alt: "Links", hasDivider: false, path: "" },
+    { img: cloud, alt: "Cloud", hasDivider: true, path: "" },
     {
       img: documents,
       alt: "Documents",
       hasDivider: false,
       to: "http://pmo-mwan.vara360.com.s3-website-us-east-1.amazonaws.com",
     },
-    { img: chat, alt: "Chat", hasDivider: false, to: "" },
+    { img: chat, alt: "Chat", hasDivider: false, path: "" },
   ];
   return (
     <div className="h-full flex flex-col items-center pt-2">
-      <Link className="h-[31px] flex items-center" to="">
+      <Link className="h-[31px] flex items-center">
         <img src={edge} alt="edge" className="w-[20px] h-[20px]" />
       </Link>
 
@@ -38,7 +60,7 @@ const LeftSideBar = () => {
       {imageData.map((img, index) => {
         return (
           <>
-            <Link className="h-8" to={img.to} key={index}>
+            <Link className="h-8" key={index} to={img.path} target={img.target}>
               <img src={img.img} alt={img.alt} className="w-[20px] h-[20px]" />
             </Link>
             {img.hasDivider && (

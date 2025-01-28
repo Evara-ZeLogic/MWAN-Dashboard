@@ -10,13 +10,6 @@ import {
 } from "../../data/pmo-data";
 
 const DashboardHeader = () => {
-  const section = [
-    { name: "section one", id: 1 },
-    { name: "section two", id: 2 },
-    { name: "section three", id: 3 },
-    { name: "section four", id: 4 },
-    { name: "section five", id: 5 },
-  ];
   return (
     <header className="flex justify-between">
       <section>

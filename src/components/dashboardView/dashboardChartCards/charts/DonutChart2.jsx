@@ -1,16 +1,8 @@
 import React, { useState } from "react";
-import {
-  PieChart,
-  Pie,
-  Sector,
-  Cell,
-  ResponsiveContainer,
-  Tooltip,
-} from "recharts";
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
 
 export default function DonutChart2({ data }) {
   const [activeIndex, setActiveIndex] = useState(0);
-
   const onPieEnter = (_, index) => {
     setActiveIndex(index);
   };

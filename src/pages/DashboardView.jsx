@@ -4,7 +4,6 @@ import mwan from "../assets/png/mwan.png";
 import PublicProjectsStatus from "../components/dashboardView/PublicProjectsStatus";
 import time from "../../src/assets/headerIcons/time.png";
 import favorites from "../../src/assets/headerIcons/favorites.png";
-import searchDocs from "../../src/assets/headerIcons/search.png";
 import pin from "../../src/assets/headerIcons/pin.png";
 import filter from "../../src/assets/headerIcons/filter.png";
 import validation from "../../src/assets/headerIcons/validation.png";
@@ -20,7 +19,6 @@ const DashboardView = () => {
   const imageData = [
     { img: time, alt: "time", hasDivider: false },
     { img: favorites, alt: "favorites", hasDivider: false },
-    { img: searchDocs, alt: "searchDocs", hasDivider: false },
     { img: pin, alt: "pin", hasDivider: false },
     { img: filter, alt: "filter", hasDivider: true },
     { img: validation, alt: "validation", hasDivider: true },
