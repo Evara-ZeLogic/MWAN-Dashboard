@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ChartsCard from "./ChartsCard";
-import ProjectCoordinatorsBarChart from "./charts/ProjectCoordinatorsBarChart";
+import ChartsCard from "../../dashboardChartCards/ChartsCard";
+import VerticalBarChart from "../../dashboardChartCards/charts/VerticalBarChart";
 import { MenuItem, Select } from "@mui/material";
 import {
   contractConsultCom,
@@ -8,9 +8,9 @@ import {
   projectOwner,
   projectOwnerMWAN,
   subDepart,
-} from "../../../data/pmo-data";
+} from "../../../../data/pmo-data";
 import { Link } from "react-router-dom";
-import arrowIcon from "../../../assets/png/ArrowsOutSimple.png";
+import arrowIcon from "../../../../assets/png/ArrowsOutSimple.png";
 
 const CoordinatorsBarChart = () => {
   const [filterType, setFilterType] = useState(1);
@@ -131,7 +131,7 @@ const CoordinatorsBarChart = () => {
       subHeading={"عرض المشاريع بالنسبة لأسماء المنسقين"}
       options={<Options />}
     >
-      <ProjectCoordinatorsBarChart data={sortData.slice(0, 8)} />
+      <VerticalBarChart data={sortData.slice(0, 8)} ticks={[0, 50, 100]} />
     </ChartsCard>
   );
 };

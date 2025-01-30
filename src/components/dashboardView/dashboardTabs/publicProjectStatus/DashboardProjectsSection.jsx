@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import arrowIcon from "../../assets/png/ArrowsOutSimple.png";
-import { projectsData } from "../../data/projectsTable";
-import DashboardTable from "./DashboardTable";
+import arrowIcon from "../../../../assets/png/ArrowsOutSimple.png";
+import { projectsData } from "../../../../data/projectsTable";
+import DashboardTable from "../../DashboardTable";
 
 export default function DashboardProjectsSection() {
   // bg-[#f8fafc] h-[225px]

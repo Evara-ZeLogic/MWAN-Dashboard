@@ -10,7 +10,7 @@ import {
   projectOwnerMWAN,
   subDepart,
 } from "../data/pmo-data";
-import ProjectCoordinatorsBarChart from "../components/dashboardView/dashboardChartCards/charts/ProjectCoordinatorsBarChart";
+import VerticalBarChart from "../components/dashboardView/dashboardChartCards/charts/VerticalBarChart";
 
 const ChartFullScreen = () => {
   const location = useLocation();
@@ -85,7 +85,6 @@ const ChartFullScreen = () => {
     ];
     return (
       <div className="flex gap-2 mb-1">
-        {/* <p className="text-[12px] text-[#c7c6c6]">الأقسام</p> */}
         <Select
           labelId="filter-label"
           id="filterList"
@@ -141,7 +140,7 @@ const ChartFullScreen = () => {
         <Options />
       </header>
       <main>
-        <ProjectCoordinatorsBarChart data={sortData} />
+        <VerticalBarChart data={sortData} ticks={[0, 50, 100]} />
       </main>
     </section>
   );

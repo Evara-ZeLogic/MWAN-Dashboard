@@ -8,21 +8,23 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-export default function ProjectCoordinatorsBarChart({ data, height }) {
-  console.log("first", data);
-  // const sortData = data.sort((a, b) => b.value - a.value);
-
+export default function VerticalBarChart({ data, color, ticks }) {
+  // console.log(">>>>>>", typeof `#28A745`, typeof color);
   function CustomTooltip({ active, payload }) {
     if (active && payload && payload.length) {
       const { name, value } = payload[1]?.payload || {};
       return (
         <div className="bg-[#1E1E1E] p-3 rounded-md text-right shadow-lg">
           <p className="m-0 font-bold text-[12px]">{name}</p>
-          <p className="m-0 text-[#28A745] text-[12px]">القيمة: {value}</p>
+          <p
+            style={{ color: color ? color : "#28A745" }}
+            className={`m-0 text-[12px]`}
+          >
+            القيمة: {value}
+          </p>
         </div>
       );
     }
-
     return null;
   }
   const truncateName = (name) => {
@@ -47,7 +49,12 @@ export default function ProjectCoordinatorsBarChart({ data, height }) {
         margin={{ top: 0, right: 0, left: 5, bottom: 0 }}
         barGap={-14}
       >
-        <XAxis type="number" ticks={[0, 50, 100]} fontSize={14} />
+        <XAxis
+          type="number"
+          ticks={ticks}
+          fontSize={14}
+          domain={[0, "dataMax"]}
+        />
         <YAxis
           type="category"
           dataKey="name"
@@ -63,14 +70,14 @@ export default function ProjectCoordinatorsBarChart({ data, height }) {
         <Tooltip content={<CustomTooltip />} />
         <Bar
           dataKey="background"
-          fill="#009E4F"
+          fill={color ? color : `#28A745`}
           opacity={0.2}
           barSize={14}
           radius={[8, 8, 8, 8]}
         />
         <Bar
           dataKey="value"
-          fill="#009E4F"
+          fill={color ? color : `#28A745`}
           barSize={14}
           radius={[8, 8, 8, 8]}
         />

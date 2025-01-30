@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import ChartsCard from "./ChartsCard";
+import ChartsCard from "../../dashboardChartCards/ChartsCard";
 // import DonutChart from "./charts/DonutChart";
 import { Tabs, Tab } from "@mui/material";
-import { mainSections, projectStatus } from "../../../data/pmo-data";
-import DonutChart2 from "./charts/DonutChart2";
+import { mainSections, projectStatus } from "../../../../data/pmo-data";
+import DonutChart2 from "../../dashboardChartCards/charts/DonutChart2";
 
 const mainSectionsData = mainSections.map((depart) => {
   return {

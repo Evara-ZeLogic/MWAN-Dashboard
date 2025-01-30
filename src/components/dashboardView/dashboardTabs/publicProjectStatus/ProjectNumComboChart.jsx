@@ -1,7 +1,7 @@
 import React from "react";
-import ChartsCard from "./ChartsCard";
-import LineBarChart from "./charts/LineBarChart";
-import { executingDepartment } from "../../../data/pmo-data";
+import ChartsCard from "../../dashboardChartCards/ChartsCard";
+import LineBarChart from "../../dashboardChartCards/charts/LineBarChart";
+import { executingDepartment } from "../../../../data/pmo-data";
 
 const ProjectNumComboChart = () => {
   const chartData = executingDepartment.map((depart) => {

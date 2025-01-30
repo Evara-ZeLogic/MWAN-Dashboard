@@ -20,7 +20,7 @@ export default function DashboardTable({ projects }) {
         ].map((cellContent, cellIndex) => (
           <td
             key={cellIndex}
-            className={`px-4 py-2 border-gray-300 ${
+            className={`px-4 py-2 border-[#2E2E2E] border-b ${
               cellIndex === 0 || cellIndex === 8 ? "" : "border-l border-r"
             } ${borderBottomClass}`}
           >
@@ -32,32 +32,32 @@ export default function DashboardTable({ projects }) {
   });
 
   return (
-    <table className="w-full table-auto border-collapse text-center border-[1px]">
+    <table className="w-full table-auto border-collapse text-center border-x-[1px] border-x-[#2E2E2E]">
       <thead>
         <tr className="sticky top-[-1px] bg-[#1E1E1E] z-10 font-semibold ">
-          <th className="px-4 py-2 border-l border-b border-gray-300">م</th>
-          <th className="px-4 py-2 border-l border-r border-b border-gray-300">
+          <th className="px-4 py-2 border-l border-b border-[#2E2E2E] ">م</th>
+          <th className="px-4 py-2 border-l border-r border-b border-[#2E2E2E]">
             اسم المشروع
           </th>
-          <th className="px-4 py-2 border-l border-r border-b border-gray-300">
+          <th className="px-4 py-2 border-l border-r border-b border-[#2E2E2E]">
             رمز المشروع
           </th>
-          <th className="px-4 py-2 border-l border-r border-b border-gray-300">
+          <th className="px-4 py-2 border-l border-r border-b border-[#2E2E2E]">
             الرقم المرجعي للعقد
           </th>
-          <th className="px-4 py-2 border-l border-r border-b border-gray-300">
+          <th className="px-4 py-2 border-l border-r border-b border-[#2E2E2E]">
             حالة المشروع
           </th>
-          <th className="px-4 py-2 border-l border-r border-b border-gray-300">
+          <th className="px-4 py-2 border-l border-r border-b border-[#2E2E2E]">
             المقاول / الشركة الاستشارية المنفذة
           </th>
-          <th className="px-4 py-2 border-l border-r border-b border-gray-300">
+          <th className="px-4 py-2 border-l border-r border-b border-[#2E2E2E]">
             مدة المشروع الحالية
           </th>
-          <th className="px-4 py-2 border-l border-r border-b border-gray-300">
+          <th className="px-4 py-2 border-l border-r border-b border-[#2E2E2E]">
             تاريخ التحديث
           </th>
-          <th className="px-4 py-2 border-b border-r border-gray-300">
+          <th className="px-4 py-2 border-b border-r border-[#2E2E2E]">
             نسبة الصرف
           </th>
         </tr>

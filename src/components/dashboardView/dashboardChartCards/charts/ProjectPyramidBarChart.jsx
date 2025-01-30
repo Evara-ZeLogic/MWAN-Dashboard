@@ -7,33 +7,23 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { projectStages } from "../../../../data/pmo-data";
 
-const chartData = projectStages.map((depart) => {
-  return {
-    id: depart.id,
-    name: depart.name,
-    value: depart.numOfProject,
-    background: 100,
-  };
-});
-const data = chartData.sort((a, b) => a.value - b.value);
+export default function ProjectPyramidBarChart({ chartData }) {
+  const data = chartData.sort((a, b) => a.value - b.value);
 
-function CustomTooltip({ active, payload }) {
-  if (active && payload && payload.length) {
-    const { name, value } = payload[1]?.payload || {};
-    return (
-      <div className="bg-[#1E1E1E] p-3 rounded-md text-right shadow-lg">
-        <p className="m-0 font-bold text-[12px]">{name}</p>
-        <p className="m-0 text-[#28A745] text-[12px]">القيمة: {value}</p>
-      </div>
-    );
+  function CustomTooltip({ active, payload }) {
+    if (active && payload && payload.length) {
+      const { name, value } = payload[1]?.payload || {};
+      return (
+        <div className="bg-[#1E1E1E] p-3 rounded-md text-right shadow-lg">
+          <p className="m-0 font-bold text-[12px]">{name}</p>
+          <p className="m-0 text-[#28A745] text-[12px]">القيمة: {value}</p>
+        </div>
+      );
+    }
+
+    return null;
   }
-
-  return null;
-}
-
-export default function ProjectPyramidBarChart() {
   const truncateName = (name) => {
     if (name.length > 13) {
       return `${name.substring(0, 13)}...`;

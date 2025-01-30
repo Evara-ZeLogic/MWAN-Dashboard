@@ -85,7 +85,7 @@ export default function DonutChart2({ data }) {
   };
 
   return (
-    <div style={{ width: "500px", height: "168px", display: "flex" }}>
+    <div style={{ width: "500", height: "168px", display: "flex" }}>
       <div style={{ padding: "2px" }}>
         {data.map((entry, index) => (
           <div

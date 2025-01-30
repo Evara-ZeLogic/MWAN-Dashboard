@@ -1,0 +1,75 @@
+export const mainSectionsFinance = [
+  {
+    id: 1,
+    name: "تحقيق التحول الرقمي في القطاع وتعظيم الفائدة من البيانات",
+    remaining: 27,
+    paid: 15,
+    invoiced: 10,
+    value: 25,
+  },
+  {
+    id: 2,
+    name: "تعزيز الجاذبية الاستثمارية والأداء اللاقتصادي للقطاع",
+    remaining: 8,
+    paid: 10,
+    invoiced: 7,
+    value: 30,
+  },
+  {
+    id: 3,
+    name: "تعزيز السلوكيات السليمة والممارسات المبتكرة لإدارة النفايات",
+    remaining: 27,
+    paid: 15,
+    invoiced: 10,
+    value: 48,
+  },
+  {
+    id: 4,
+    name: "تمكين المركز",
+    remaining: 27,
+    paid: 15,
+    invoiced: 10,
+    value: 20,
+  },
+  {
+    id: 5,
+    name: "تنظيم قطاع إدارة النفايات",
+    remaining: 27,
+    paid: 15,
+    invoiced: 10,
+    value: 15,
+  },
+  {
+    id: 6,
+    name: "رفع مستويات الامتثال في القطاع",
+    remaining: 27,
+    paid: 15,
+    invoiced: 10,
+    value: 32,
+  },
+];
+
+export const projectStagesFinance = [
+  { id: 1, name: "قبل بدأ المشروع", value: 21 },
+  { id: 2, name: "تخطيط المشروع", value: 32 },
+  { id: 3, name: "الشراء", value: 24 },
+  { id: 4, name: "تنفيذ المشروع ", value: 42 },
+  { id: 5, name: "الإغلاق", value: 48 },
+  { id: 6, name: "إلغاء المشروع  قبل التعاقد", value: 37 },
+  { id: 7, name: "إنسحاب المشروع ", value: 13 },
+];
+
+export const projectMonthFinance = [
+  { id: 1, month: "يناير", value: 21 },
+  { id: 2, month: "فبراير", value: 32 },
+  { id: 3, month: "مارس", value: 24 },
+  { id: 4, month: "أبريل", value: 42 },
+  { id: 5, month: "مايو", value: 48 },
+  { id: 6, month: "يونيو", value: 37 },
+  { id: 7, month: "يوليو", value: 13 },
+  { id: 8, month: "أغسطس", value: 21 },
+  { id: 9, month: "سبتمبر", value: 32 },
+  { id: 10, month: "أكتوبر", value: 24 },
+  { id: 11, month: "نوفمبر", value: 42 },
+  { id: 12, month: "ديسمبر", value: 48 },
+];

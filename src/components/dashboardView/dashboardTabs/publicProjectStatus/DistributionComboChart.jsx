@@ -1,7 +1,7 @@
 import React from "react";
-import ChartsCard from "./ChartsCard";
-import LineBarChart from "./charts/LineBarChart";
-import { projectWallet } from "../../../data/pmo-data";
+import ChartsCard from "../../dashboardChartCards/ChartsCard";
+import LineBarChart from "../../dashboardChartCards/charts/LineBarChart";
+import { projectWallet } from "../../../../data/pmo-data";
 
 const DistributionComboChart = () => {
   const chartData = projectWallet.map((depart) => {

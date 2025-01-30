@@ -1,11 +1,11 @@
 import React from "react";
-import DashboardHeader from "./DashboardHeader";
-import DashboardCards from "./DashboardCards";
-import DistributionComboChart from "./dashboardChartCards/DistributionComboChart";
-import DistributionDoughnutChart from "./dashboardChartCards/DistributionDoughnutChart";
-import PhasePyramidChart from "./dashboardChartCards/PhasePyramidChart";
-import ProjectNumComboChart from "./dashboardChartCards/ProjectNumComboChart";
-import CoordinatorsBarChart from "./dashboardChartCards/CoordinatorsBarChart";
+import DashboardHeader from "../../DashboardHeader";
+import DashboardCards from "../../DashboardCards";
+import DistributionComboChart from "./DistributionComboChart";
+import DistributionDoughnutChart from "./DistributionDoughnutChart";
+import PhasePyramidChart from "./PhasePyramidChart";
+import ProjectNumComboChart from "./ProjectNumComboChart";
+import CoordinatorsBarChart from "./CoordinatorsBarChart";
 import DashboardProjectsSection from "./DashboardProjectsSection";
 
 const PublicProjectsStatus = () => {
