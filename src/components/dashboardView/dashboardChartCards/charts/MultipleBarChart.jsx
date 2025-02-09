@@ -105,7 +105,7 @@ const MultipleBarChart = ({ data, labeled }) => {
         barCategoryGap="0%"
         // barGap={2}
       >
-        <CartesianGrid strokeDasharray="5 0" vertical={false} />
+        <CartesianGrid stroke="#7A7A7A" strokeDasharray=" 0" vertical={false} />
         <XAxis
           dataKey="name"
           tick={<CustomXAxisTick />}

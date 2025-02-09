@@ -68,7 +68,7 @@ const FinancialPerspective = () => {
           subHeading={"عرض اجمالي قيم المشاريع بالنسبة للإدارات المختلفة"}
         >
           <div className="h-40">
-            <LineBarChart data={chartData} labeled />
+            <LineBarChart data={chartData} labeled lineChart={true} />
           </div>
         </ChartsCard>
         <ChartsCard

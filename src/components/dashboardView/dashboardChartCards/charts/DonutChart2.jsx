@@ -6,7 +6,6 @@ export default function DonutChart2({ data }) {
   const onPieEnter = (_, index) => {
     setActiveIndex(index);
   };
-
   const colors = [
     "#304FFD",
     "#FFD240",
@@ -22,7 +21,6 @@ export default function DonutChart2({ data }) {
     "#E91E63",
     "#673AB7",
   ];
-
   const total = data.reduce((acc, item) => acc + item.value, 0);
 
   const renderActiveShape = (props) => {
@@ -38,7 +36,6 @@ export default function DonutChart2({ data }) {
       percent,
       value,
     } = props;
-
     const sin = Math.sin((-RADIAN * (startAngle + endAngle)) / 2);
     const cos = Math.cos((-RADIAN * (startAngle + endAngle)) / 2);
     const sx = cx + outerRadius * cos;
@@ -106,7 +103,7 @@ export default function DonutChart2({ data }) {
               }}
             ></div>
             <span
-              className="truncate w-24"
+              className="truncate w-28"
               style={{
                 fontSize: "12px",
               }}
@@ -116,7 +113,7 @@ export default function DonutChart2({ data }) {
           </div>
         ))}
       </div>
-      <ResponsiveContainer>
+      <ResponsiveContainer className={"mt-[-6px]"}>
         <PieChart>
           <Pie
             dataKey="value"

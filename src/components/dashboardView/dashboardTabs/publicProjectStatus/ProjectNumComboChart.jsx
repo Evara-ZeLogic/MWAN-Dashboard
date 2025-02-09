@@ -20,7 +20,7 @@ const ProjectNumComboChart = () => {
       subHeading={"عرض اجمالي المشاريع مع قيم العقود الحالية بشكل خطي"}
     >
       <div className="h-40">
-        <LineBarChart data={chartData} />
+        <LineBarChart data={chartData} lineChart={true} />
       </div>
     </ChartsCard>
   );

@@ -6,6 +6,8 @@ import { theme } from "./theme";
 import createCache from "@emotion/cache";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
+import { store } from "./store";
+import { Provider } from "react-redux";
 
 function App() {
   const cacheRtl = createCache({
@@ -15,7 +17,9 @@ function App() {
   return (
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={theme}>
-        <RouterProvider router={router} />
+        <Provider store={store}>
+          <RouterProvider router={router} />
+        </Provider>
       </ThemeProvider>
     </CacheProvider>
   );

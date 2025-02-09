@@ -20,7 +20,7 @@ const DistributionComboChart = () => {
       subHeading={"عرض اجمالي المشاريع في كل محفظة مع الأهداف الاستراتيجية"}
     >
       <div className="h-40">
-        <LineBarChart data={chartData} />
+        <LineBarChart data={chartData} lineChart={true} />
       </div>
     </ChartsCard>
   );

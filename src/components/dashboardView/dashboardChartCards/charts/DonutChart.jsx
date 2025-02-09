@@ -1,7 +1,5 @@
 import { ResponsivePie } from "@nivo/pie";
-// import "./DonutChart.css";
 export default function DonutChart({ data }) {
-  // const colors = ["#304FFD", "#FFD240", "#FD7972", "#FF965D"];
   const colors = [
     "#304FFD", // Blue
     "#FFD240", // Yellow

@@ -11,7 +11,7 @@ import {
   LabelList,
 } from "recharts";
 
-export default function LineBarChart({ data, labeled, color }) {
+export default function LineBarChart({ data, labeled, color, lineChart }) {
   function CustomTooltip({ active, payload }) {
     if (active && payload && payload.length) {
       const { name, value, lineValue } = payload[1]?.payload || {};
@@ -112,7 +112,7 @@ export default function LineBarChart({ data, labeled, color }) {
         barCategoryGap="0%"
         barGap={-14}
       >
-        <CartesianGrid strokeDasharray="5 0" vertical={false} />
+        <CartesianGrid stroke="#7A7A7A" strokeDasharray=" 0" vertical={false} />
         <XAxis
           dataKey="name"
           tick={<CustomXAxisTick />}
@@ -145,7 +145,7 @@ export default function LineBarChart({ data, labeled, color }) {
           barSize={14}
           radius={[8, 8, 8, 8]}
         />
-        {data.lineValue && (
+        {lineChart && (
           <Line
             type="monotone"
             dataKey="lineValue"
