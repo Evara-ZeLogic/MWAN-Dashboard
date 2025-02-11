@@ -66,7 +66,7 @@ const DashboardView = () => {
                 <button
                   key={index}
                   className={`${
-                    img.hasDivider && `pr-4 border-r-[2px] border-[#4E4E4E]`
+                    img.hasDivider && `pr-4 border-r-[1px] border-[#4E4E4E]`
                   }`}
                 >
                   <img
