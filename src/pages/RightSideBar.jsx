@@ -17,8 +17,8 @@ import withdraw from "../../src/assets/statues/withdraw.png";
 const RightSideBar = () => {
   const imageData = [
     { img: sheeView, alt: "sheet view", hasDivider: false },
-    { img: projectView, alt: "project view", hasDivider: true },
-    { img: viewAll, alt: "view all", hasDivider: false },
+    { img: projectView, alt: "project view", hasDivider: false },
+    { img: viewAll, alt: "view all", hasDivider: true },
     { img: idea, alt: "idea", hasDivider: false },
     { img: future, alt: "future", hasDivider: false },
     { img: activePayment, alt: "active payment", hasDivider: false },
@@ -44,14 +44,19 @@ const RightSideBar = () => {
 
       {imageData.map((img, index) => {
         return (
-          <>
-            <button className="w-5 h-10" key={index}>
+          <div key={index}>
+            <button
+              className={`h-10 pt-1${
+                img.hasDivider && `pb-4 border-t-[1px] border-[#4E4E4E]`
+              }`}
+              key={index}
+            >
               <img src={img.img} alt={img.alt} className="w-[20px] h-[20px]" />
             </button>
-            {img.hasDivider && (
+            {/* {img.hasDivider && (
               <div className="w-[30px] h-[10px] border-b-[1px] border-[#4E4E4E]"></div>
-            )}
-          </>
+            )} */}
+          </div>
         );
       })}
     </div>

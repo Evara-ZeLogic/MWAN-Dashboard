@@ -61,12 +61,19 @@ const LeftSideBar = () => {
       {imageData.map((img, index) => {
         return (
           <>
-            <Link className="h-8" key={index} to={img.path} target={img.target}>
+            <Link
+              className={` h-9 pt-1 ${
+                img.hasDivider && `pb-4 border-b-[1px] border-[#4E4E4E]`
+              }`}
+              key={index}
+              to={img.path}
+              target={img.target}
+            >
               <img src={img.img} alt={img.alt} className="w-[20px] h-[20px]" />
             </Link>
-            {img.hasDivider && (
+            {/* {img.hasDivider && (
               <div className="w-[30px] h-[10px] border-b-[1px] border-[#4E4E4E] mb-2"></div>
-            )}
+            )} */}
           </>
         );
       })}
