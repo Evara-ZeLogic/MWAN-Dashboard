@@ -57,21 +57,23 @@ const DashboardView = () => {
             <Tab label={<p>توزيع المناطق</p>} />
           </Tabs>
         </div>
-        <div className="flex gap-4 flex-row-reverse">
+        <div className={`flex gap-4 flex-row-reverse items-center`}>
           {imageData.map((img, index) => {
             return (
-              <>
-                <button key={index}>
+              <div key={index}>
+                <button
+                  key={index}
+                  className={`${
+                    img.hasDivider && `pr-4 border-r-[2px] border-[#4E4E4E]`
+                  }`}
+                >
                   <img
                     src={img.img}
                     alt={img.alt}
                     className="w-[20px] h-[20px]"
                   />
                 </button>
-                {img.hasDivider && (
-                  <div className="w-[5px] h-[25px] border-l-[2px] border-[#4E4E4E]"></div>
-                )}
-              </>
+              </div>
             );
           })}
         </div>

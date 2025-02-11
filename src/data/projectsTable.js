@@ -1047,7 +1047,7 @@ export const projectsData = [
   {
     projectName:
       "توريد و تركيب اجهزة سمعية و بصرية و مواد ديكورات و دهانات لتجهيز عدد (2) قاعات اجتماعات بالمركز الوطني لإدارة النفايات",
-    projectId: "P0099",
+    projectId: "P00999",
     contractRefNum: 211201041039,
     projectStatus: "تم صرف المستخلص الختامي",
     executingCompany: "نور انترنت فرع شركة نور للاتصالات",
@@ -1664,7 +1664,7 @@ export const projectsData = [
   {
     projectName:
       "الخطة التنفيذية لتحقيق البرامج الأكاديمية اللازم انشاءها في جميع مناطق المملكة",
-    projectId: "P0144",
+    projectId: "P01444",
     contractRefNum: "لم يتم التعاقد بعد",
     currentDuration: 0,
   },

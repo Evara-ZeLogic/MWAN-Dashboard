@@ -6,7 +6,7 @@ import { theme } from "./theme";
 import createCache from "@emotion/cache";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
-import { store } from "./store";
+import store from "./store";
 import { Provider } from "react-redux";
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
     key: "muirtl",
     stylisPlugins: [rtlPlugin],
   });
+
   return (
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={theme}>
