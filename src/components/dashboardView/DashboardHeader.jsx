@@ -24,7 +24,9 @@ const DashboardHeader = () => {
           <Select
             labelId="section-label"
             id="section"
-            value="الكل"
+            value={
+              mainSections.some((option) => option.id === "الكل") ? "الكل" : ""
+            }
             sx={{
               fontFamily: "Cairo",
               fontSize: "12px",
@@ -84,7 +86,11 @@ const DashboardHeader = () => {
             labelId="section-label"
             id="section"
             label="حالة المشاريع"
-            value="حالة المشاريع"
+            value={
+              projectStatus.some((option) => option.id === "حالة المشاريع")
+                ? "حالة المشاريع"
+                : ""
+            }
             sx={{
               fontFamily: "Cairo",
               fontSize: "12px",
@@ -114,7 +120,13 @@ const DashboardHeader = () => {
             labelId="section-label"
             id="section"
             label="تصنيف التعاقد"
-            value="تصنيف التعاقد"
+            value={
+              contractClassification.some(
+                (option) => option.id === "تصنيف التعاقد"
+              )
+                ? "تصنيف التعاقد"
+                : ""
+            }
             sx={{
               fontFamily: "Cairo",
               fontSize: "12px",
