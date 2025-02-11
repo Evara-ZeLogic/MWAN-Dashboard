@@ -28,6 +28,11 @@ const projectSlice = createSlice({
       .addCase(getAllProjects.fulfilled, (state, action) => {
         state.loading = false;
         state.projects = action.payload;
+      })
+      .addCase(getAllProjects.rejected, (state, action) => {
+        state.error = action.error?.message;
       });
   },
 });
+
+export default projectSlice.reducer;

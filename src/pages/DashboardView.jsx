@@ -9,13 +9,15 @@ import filter from "../../src/assets/headerIcons/filter.png";
 import validation from "../../src/assets/headerIcons/validation.png";
 import hide from "../../src/assets/headerIcons/hide.png";
 import FinancialPerspective from "../components/dashboardView/dashboardTabs/financePerspective/FinancialPerspective.jsx";
+import { useSelector } from "react-redux";
 
 const DashboardView = () => {
   const [tabValue, setTabValue] = useState(0);
   function handleTabChange(event, value) {
     setTabValue(value);
   }
-
+  const { projects } = useSelector((state) => state);
+  console.log("projects", projects);
   const imageData = [
     { img: time, alt: "time", hasDivider: false },
     { img: favorites, alt: "favorites", hasDivider: false },
