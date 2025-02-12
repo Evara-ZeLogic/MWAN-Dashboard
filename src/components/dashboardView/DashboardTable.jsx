@@ -1,22 +1,25 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-export default function DashboardTable({ projects }) {
-  const renderedTableBody = projects.map((item, index) => {
+export default function DashboardTable() {
+  // { projects }
+  const { projects } = useSelector((state) => state.pmoProjects);
+  const renderedTableBody = projects?.map((item, index) => {
     const backgroundColor = index % 2 === 0 ? "bg-[#1E1E1E]" : "bg-[#192A19]";
     const borderBottomClass = index + 1 === projects.length ? "" : "border-b";
 
     return (
-      <tr key={item.projectId} className={backgroundColor}>
+      <tr key={item.id} className={backgroundColor}>
         {[
           index + 1,
-          item.projectName,
-          item.projectId,
-          item.contractRefNum,
-          item.projectStatus,
-          item.executingCompany,
-          item.currentDuration,
-          item.updateDate,
-          item.paymentPercentage,
+          item.name,
+          item.projectCode,
+          item.contractReference,
+          item.status?.name,
+          item.consultingCompany?.name,
+          item.currentProjectDuration,
+          item.updatedAt ? item.updatedAt : "",
+          item.invoicingPercentage,
         ].map((cellContent, cellIndex) => (
           <td
             key={cellIndex}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Tab, Tabs } from "@mui/material";
 import mwan from "../assets/png/mwan.png";
 import PublicProjectsStatus from "../components/dashboardView/dashboardTabs/publicProjectStatus/PublicProjectsStatus";
@@ -9,15 +9,20 @@ import filter from "../../src/assets/headerIcons/filter.png";
 import validation from "../../src/assets/headerIcons/validation.png";
 import hide from "../../src/assets/headerIcons/hide.png";
 import FinancialPerspective from "../components/dashboardView/dashboardTabs/financePerspective/FinancialPerspective.jsx";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getAllProjects,
+  getProjectSummary,
+} from "../store/projects/projectsSlice.js";
 
 const DashboardView = () => {
+  const dispatch = useDispatch();
   const [tabValue, setTabValue] = useState(0);
   function handleTabChange(event, value) {
     setTabValue(value);
   }
-  const { projects } = useSelector((state) => state);
-  console.log("projects", projects);
+  // const {projects} = useSelector((state) => state.pmoProjects);
+  // console.log("projects", projects);
   const imageData = [
     { img: time, alt: "time", hasDivider: false },
     { img: favorites, alt: "favorites", hasDivider: false },
@@ -26,7 +31,19 @@ const DashboardView = () => {
     { img: validation, alt: "validation", hasDivider: true },
     { img: hide, alt: "hide", hasDivider: false },
   ];
-
+  useEffect(() => {
+    const filterType = {
+      // page: 1,
+      // limit: 1,
+      // statusId: 1,
+      // mainSectionId:1,
+      // contractClassificationId:1,
+      // startDate: "2025-01-29",
+      // endDate: "2025-02-29",
+    };
+    dispatch(getAllProjects(filterType));
+    dispatch(getProjectSummary(filterType));
+  }, [dispatch]);
   return (
     <>
       <div className="w-full flex items-center justify-between border-b-[1px] border-[#414141] px-2">

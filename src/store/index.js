@@ -5,6 +5,6 @@ import projectsReducer from "./projects/projectsSlice";
 export default configureStore({
   reducer: {
     login: loginReducer,
-    projects: projectsReducer,
+    pmoProjects: projectsReducer,
   },
 });

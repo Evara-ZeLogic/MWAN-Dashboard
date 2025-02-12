@@ -4,12 +4,15 @@ import finance from "../../assets/png/finance.png";
 import invoice from "../../assets/png/Invoice.png";
 import percent from "../../assets/png/Percent.png";
 import clockWise from "../../assets/png/Clockwise.png";
+import { useSelector } from "react-redux";
 
 const Card = ({ title, value, img, bgColor }) => {
   const formNumbers = (number) => {
     const suffixes = ["H", "K", "M"];
     const numberToString = number.toString();
     if (numberToString.length < 6) {
+      return `${number.toLocaleString("en", { useGrouping: true })}`;
+    } else if (Number.isInteger(number) === false) {
       return `${number.toLocaleString("en", { useGrouping: true })}`;
     } else {
       let newTotal = number;
@@ -42,43 +45,51 @@ const Card = ({ title, value, img, bgColor }) => {
 };
 
 const DashboardCards = () => {
+  const { projectSummary } = useSelector((state) => state.pmoProjects);
+  console.log("projectSummary", projectSummary);
   const cardData = [
     {
       title: "إجمالي عدد المشاريع",
       id: 1,
-      value: 181,
+      value: projectSummary?.totalCount,
       img: flag,
       bgColor: "#253C25",
     },
     {
       title: "قيمة العقود الحالية",
       id: 2,
-      value: 886217091,
+      value: projectSummary?.totalAmounts?.currentContractValue,
       img: finance,
       bgColor: "#3A302A",
     },
     {
       title: "المفوتر",
       id: 3,
-      value: 801369772,
+      value: projectSummary?.totalAmounts?.invoiced,
       img: invoice,
       bgColor: "#242A3A",
     },
     {
       title: "المتبقي للفوترة",
       id: 4,
-      value: 113970957,
+      value: projectSummary?.totalAmounts?.remainingForInvoicing,
       img: clockWise,
       bgColor: "#1D323C",
     },
     {
       title: "نسبة الصرف",
       id: 5,
-      value: 0.05,
+      value: projectSummary?.disbursementPercentage,
       img: percent,
       bgColor: "#341833",
     },
   ];
+  console.log(
+    "projectSummary?.disbursementPercentage",
+    typeof projectSummary?.disbursementPercentage,
+    Number.isInteger(projectSummary?.disbursementPercentage) === false,
+    Number.isInteger(projectSummary?.disbursementPercentage)
+  );
   return (
     <section className="w-full flex justify-between">
       {cardData.map((card, index) => {

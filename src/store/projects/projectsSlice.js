@@ -1,23 +1,49 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { PMOClient } from "../../helpers/client";
+
 export const getAllProjects = createAsyncThunk(
-  "projects/getAllProjects",
+  "pmoProjects/getAllProjects",
   async (filterType, { rejectWithValue }) => {
     try {
       const response = await PMOClient.get(
-        `/project?page=1&limit=1&statusId=2&startDate=2025-01-29&endDate=2025-02-29`
+        `/project${filterType.page ? `?page=${filterType.page}` : ""}${
+          filterType.limit ? `&limit=${filterType.limit}` : ""
+        }${filterType.statusId ? `&statusId=${filterType.statusId}` : ""}${
+          filterType.startDate ? `&startDate=${filterType.startDate}` : ""
+        }${filterType.endDate ? `&endDate=${filterType.endDate}` : ""}`
       );
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response?.data);
+    }
+  }
+);
+export const getProjectSummary = createAsyncThunk(
+  "pmoProjects/getProjectSummary",
+  async (filterType, { rejectWithValue }) => {
+    try {
+      const response = await PMOClient.get(
+        `/project/details/summary${
+          filterType.page ? `?page=${filterType.page}` : ""
+        }${filterType.limit ? `&limit=${filterType.limit}` : ""}${
+          filterType.statusId ? `&statusId=${filterType.statusId}` : ""
+        }${filterType.startDate ? `&startDate=${filterType.startDate}` : ""}${
+          filterType.endDate ? `&endDate=${filterType.endDate}` : ""
+        }`
+      );
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data);
     }
   }
 );
 
 const projectSlice = createSlice({
+  name: "pmoProjects",
   initialState: {
     loading: false,
     projects: [],
+    projectSummary: {},
     error: null,
   },
   extraReducers: (builder) => {
@@ -30,6 +56,16 @@ const projectSlice = createSlice({
         state.projects = action.payload;
       })
       .addCase(getAllProjects.rejected, (state, action) => {
+        state.error = action.error?.message;
+      })
+      .addCase(getProjectSummary.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getProjectSummary.fulfilled, (state, action) => {
+        state.loading = false;
+        state.projectSummary = action.payload;
+      })
+      .addCase(getProjectSummary.rejected, (state, action) => {
         state.error = action.error?.message;
       });
   },
