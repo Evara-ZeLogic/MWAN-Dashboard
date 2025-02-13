@@ -1,16 +1,19 @@
 import React from "react";
 import ChartsCard from "../../dashboardChartCards/ChartsCard";
 import LineBarChart from "../../dashboardChartCards/charts/LineBarChart";
-import { executingDepartment } from "../../../../data/pmo-data";
+import { useSelector } from "react-redux";
 
 const ProjectNumComboChart = () => {
-  const chartData = executingDepartment.map((depart) => {
+  const { countedByExecutiveManagements } = useSelector(
+    (state) => state.countedBy
+  );
+  const chartData = countedByExecutiveManagements.map((management) => {
     return {
-      id: depart.id,
-      name: depart.name,
-      value: depart.numOfProject,
-      lineValue: depart.numOfProject,
-      background: 30,
+      id: management?.executiveManagement?.id,
+      name: management?.executiveManagement?.name,
+      value: management.totalCount,
+      lineValue: management.totalCount,
+      background: 50,
     };
   });
   return (

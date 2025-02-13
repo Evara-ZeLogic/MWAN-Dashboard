@@ -4,9 +4,11 @@ import LineBarChart from "../../dashboardChartCards/charts/LineBarChart";
 import { useSelector } from "react-redux";
 
 const DistributionComboChart = () => {
-  const { strategicObjectives } = useSelector((state) => state.countedBy);
-  console.log("strategicObjectives", strategicObjectives);
-  const chartData = strategicObjectives.map((objective) => {
+  const { countedByStrategicObjectives } = useSelector(
+    (state) => state.countedBy
+  );
+
+  const chartData = countedByStrategicObjectives.map((objective) => {
     return {
       id: objective?.strategicObjective?.id,
       name: objective?.strategicObjective?.name,

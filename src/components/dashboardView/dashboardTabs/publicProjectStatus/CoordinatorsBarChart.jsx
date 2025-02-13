@@ -4,15 +4,18 @@ import VerticalBarChart from "../../dashboardChartCards/charts/VerticalBarChart"
 import { MenuItem, Select } from "@mui/material";
 import {
   contractConsultCom,
-  projectCoordinators,
+  // projectCoordinators,
   projectOwner,
   projectOwnerMWAN,
   subDepart,
 } from "../../../../data/pmo-data";
 import { Link } from "react-router-dom";
 import arrowIcon from "../../../../assets/png/ArrowsOutSimple.png";
+import { useSelector } from "react-redux";
 
 const CoordinatorsBarChart = () => {
+  const { countedByCoordinators } = useSelector((state) => state.countedBy);
+
   const [filterType, setFilterType] = useState(1);
   const handleChange = (event) => {
     setFilterType(event.target.value);
@@ -67,11 +70,11 @@ const CoordinatorsBarChart = () => {
       </div>
     );
   }
-  const coordinators = projectCoordinators.map((depart) => {
+  const coordinatorsData = countedByCoordinators.map((coordinator) => {
     return {
-      id: depart.id,
-      name: depart.name,
-      value: depart.numOfProject,
+      id: coordinator?.projectCoordinator?.id,
+      name: coordinator?.projectCoordinator?.name,
+      value: coordinator?.totalCount,
       background: 100,
     };
   });
@@ -115,7 +118,7 @@ const CoordinatorsBarChart = () => {
     } else if (filterType === 3) {
       return mwanOwnerData;
     } else if (filterType === 4) {
-      return coordinators;
+      return coordinatorsData;
     } else if (filterType === 5) {
       return subDepartData;
     } else {

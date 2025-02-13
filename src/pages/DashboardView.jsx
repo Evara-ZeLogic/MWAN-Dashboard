@@ -15,11 +15,18 @@ import {
   getProjectSummary,
 } from "../store/projects/projectsSlice.js";
 import {
+  countByCoordinator,
+  countByExecutiveManagement,
   countByMainSection,
   countByStage,
   countByStatus,
   countByStrategicObjective,
 } from "../store/projects/countedBySlice.js";
+import {
+  getContractClassifications,
+  getMainSections,
+  getStatuses,
+} from "../store/filterType/filterTypeSlice.js";
 
 const DashboardView = () => {
   const dispatch = useDispatch();
@@ -46,12 +53,17 @@ const DashboardView = () => {
       // startDate: "2025-01-29",
       // endDate: "2025-02-29",
     };
+    dispatch(getMainSections());
+    dispatch(getStatuses());
+    dispatch(getContractClassifications());
     dispatch(getAllProjects(filterType));
     dispatch(getProjectSummary(filterType));
     dispatch(countByMainSection(filterType));
     dispatch(countByStatus(filterType));
     dispatch(countByStage(filterType));
     dispatch(countByStrategicObjective(filterType));
+    dispatch(countByCoordinator(filterType));
+    dispatch(countByExecutiveManagement(filterType));
   }, [dispatch]);
   return (
     <>

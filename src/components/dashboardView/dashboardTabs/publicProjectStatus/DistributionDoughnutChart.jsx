@@ -7,16 +7,18 @@ import { useSelector } from "react-redux";
 
 export default function DistributionDoughnutChart() {
   const [tabValue, setTabValue] = useState(0);
-  const { mainSections, status } = useSelector((state) => state.countedBy);
+  const { countedByMainSections, countedByStatus } = useSelector(
+    (state) => state.countedBy
+  );
 
-  const mainSectionsData = mainSections.map((section) => {
+  const mainSectionsData = countedByMainSections.map((section) => {
     return {
       id: section?.mainSection?.id,
       label: section?.mainSection?.name,
       value: section.totalCount,
     };
   });
-  const projectStausData = status.map((item) => {
+  const projectStausData = countedByStatus.map((item) => {
     return {
       id: item?.status?.id,
       label: item?.status?.name,

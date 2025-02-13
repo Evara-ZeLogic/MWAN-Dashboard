@@ -5,9 +5,9 @@ import ProjectPyramidBarChart from "../../dashboardChartCards/charts/ProjectPyra
 import { useSelector } from "react-redux";
 
 const PhasePyramidChart = () => {
-  const { stages } = useSelector((state) => state.countedBy);
+  const { countedByStages } = useSelector((state) => state.countedBy);
 
-  const chartData = stages.map((stage) => {
+  const chartData = countedByStages.map((stage) => {
     return {
       id: stage?.operationalModelStage?.id,
       name: stage?.operationalModelStage?.name,
