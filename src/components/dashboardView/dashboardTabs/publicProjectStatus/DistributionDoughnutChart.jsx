@@ -2,25 +2,27 @@ import React, { useState } from "react";
 import ChartsCard from "../../dashboardChartCards/ChartsCard";
 // import DonutChart from "./charts/DonutChart";
 import { Tabs, Tab } from "@mui/material";
-import { mainSections, projectStatus } from "../../../../data/pmo-data";
 import DonutChart2 from "../../dashboardChartCards/charts/DonutChart2";
+import { useSelector } from "react-redux";
 
-const mainSectionsData = mainSections.map((depart) => {
-  return {
-    id: depart.id,
-    label: depart.name,
-    value: depart.numOfProject,
-  };
-});
-const projectStausData = projectStatus.map((depart) => {
-  return {
-    id: depart.id,
-    label: depart.name,
-    value: depart.numOfProject,
-  };
-});
 export default function DistributionDoughnutChart() {
   const [tabValue, setTabValue] = useState(0);
+  const { mainSections, status } = useSelector((state) => state.countedBy);
+
+  const mainSectionsData = mainSections.map((section) => {
+    return {
+      id: section?.mainSection?.id,
+      label: section?.mainSection?.name,
+      value: section.totalCount,
+    };
+  });
+  const projectStausData = status.map((item) => {
+    return {
+      id: item?.status?.id,
+      label: item?.status?.name,
+      value: item?.totalCount,
+    };
+  });
 
   function Options() {
     return (

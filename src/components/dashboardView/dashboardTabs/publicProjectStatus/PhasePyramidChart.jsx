@@ -1,14 +1,17 @@
 import React from "react";
 import ChartsCard from "../../dashboardChartCards/ChartsCard";
 import ProjectPyramidBarChart from "../../dashboardChartCards/charts/ProjectPyramidBarChart";
-import { projectStages } from "../../../../data/pmo-data";
+// import { projectStages } from "../../../../data/pmo-data";
+import { useSelector } from "react-redux";
 
 const PhasePyramidChart = () => {
-  const chartData = projectStages.map((depart) => {
+  const { stages } = useSelector((state) => state.countedBy);
+
+  const chartData = stages.map((stage) => {
     return {
-      id: depart.id,
-      name: depart.name,
-      value: depart.numOfProject,
+      id: stage?.operationalModelStage?.id,
+      name: stage?.operationalModelStage?.name,
+      value: stage.percentage,
       background: 100,
     };
   });

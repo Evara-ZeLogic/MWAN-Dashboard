@@ -9,11 +9,17 @@ import filter from "../../src/assets/headerIcons/filter.png";
 import validation from "../../src/assets/headerIcons/validation.png";
 import hide from "../../src/assets/headerIcons/hide.png";
 import FinancialPerspective from "../components/dashboardView/dashboardTabs/financePerspective/FinancialPerspective.jsx";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   getAllProjects,
   getProjectSummary,
 } from "../store/projects/projectsSlice.js";
+import {
+  countByMainSection,
+  countByStage,
+  countByStatus,
+  countByStrategicObjective,
+} from "../store/projects/countedBySlice.js";
 
 const DashboardView = () => {
   const dispatch = useDispatch();
@@ -21,8 +27,7 @@ const DashboardView = () => {
   function handleTabChange(event, value) {
     setTabValue(value);
   }
-  // const {projects} = useSelector((state) => state.pmoProjects);
-  // console.log("projects", projects);
+
   const imageData = [
     { img: time, alt: "time", hasDivider: false },
     { img: favorites, alt: "favorites", hasDivider: false },
@@ -43,6 +48,10 @@ const DashboardView = () => {
     };
     dispatch(getAllProjects(filterType));
     dispatch(getProjectSummary(filterType));
+    dispatch(countByMainSection(filterType));
+    dispatch(countByStatus(filterType));
+    dispatch(countByStage(filterType));
+    dispatch(countByStrategicObjective(filterType));
   }, [dispatch]);
   return (
     <>

@@ -2,14 +2,17 @@ import React from "react";
 import ChartsCard from "../../dashboardChartCards/ChartsCard";
 import LineBarChart from "../../dashboardChartCards/charts/LineBarChart";
 import { projectWallet } from "../../../../data/pmo-data";
+import { useSelector } from "react-redux";
 
 const DistributionComboChart = () => {
-  const chartData = projectWallet.map((depart) => {
+  const { strategicObjectives } = useSelector((state) => state.countedBy);
+  console.log("strategicObjectives", strategicObjectives);
+  const chartData = strategicObjectives.map((objective) => {
     return {
-      id: depart.id,
-      name: depart.name,
-      value: depart.numOfProject,
-      lineValue: depart.numOfProject,
+      id: objective?.strategicObjective?.id,
+      name: objective?.strategicObjective?.name,
+      value: objective.totalCount,
+      lineValue: objective.totalCount,
       background: 57,
     };
   });

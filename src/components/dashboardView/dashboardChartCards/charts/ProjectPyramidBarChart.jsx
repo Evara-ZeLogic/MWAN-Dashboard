@@ -70,7 +70,7 @@ export default function ProjectPyramidBarChart({ chartData }) {
         data={data}
         layout="vertical"
         margin={{ top: 0, right: 15, left: 15, bottom: 0 }}
-        barGap={-14}
+        barGap={data.length < 3 ? -50 : -14}
       >
         <XAxis
           type="number"
@@ -100,7 +100,7 @@ export default function ProjectPyramidBarChart({ chartData }) {
                 x={100}
                 y={y + 1}
                 width={370}
-                height={height}
+                height={"12px"}
                 fill="#009E4F"
                 opacity={0.2}
                 rx={8}
@@ -120,7 +120,7 @@ export default function ProjectPyramidBarChart({ chartData }) {
                 x={x - width / 2}
                 y={y}
                 width={width}
-                height={height}
+                height={"12px"}
                 fill="#009E4F"
                 rx={8}
                 ry={8}

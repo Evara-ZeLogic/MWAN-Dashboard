@@ -9,11 +9,11 @@ import { useSelector } from "react-redux";
 const Card = ({ title, value, img, bgColor }) => {
   const formNumbers = (number) => {
     const suffixes = ["H", "K", "M"];
-    const numberToString = number.toString();
-    if (numberToString.length < 6) {
-      return `${number.toLocaleString("en", { useGrouping: true })}`;
+    const numberToString = number?.toString();
+    if (numberToString?.length < 6) {
+      return `${number?.toLocaleString("en", { useGrouping: true })}`;
     } else if (Number.isInteger(number) === false) {
-      return `${number.toLocaleString("en", { useGrouping: true })}`;
+      return `${number?.toLocaleString("en", { useGrouping: true })}`;
     } else {
       let newTotal = number;
       const orderOfMagnitude = Math.min(
@@ -46,7 +46,6 @@ const Card = ({ title, value, img, bgColor }) => {
 
 const DashboardCards = () => {
   const { projectSummary } = useSelector((state) => state.pmoProjects);
-  console.log("projectSummary", projectSummary);
   const cardData = [
     {
       title: "إجمالي عدد المشاريع",
@@ -84,12 +83,7 @@ const DashboardCards = () => {
       bgColor: "#341833",
     },
   ];
-  console.log(
-    "projectSummary?.disbursementPercentage",
-    typeof projectSummary?.disbursementPercentage,
-    Number.isInteger(projectSummary?.disbursementPercentage) === false,
-    Number.isInteger(projectSummary?.disbursementPercentage)
-  );
+
   return (
     <section className="w-full flex justify-between">
       {cardData.map((card, index) => {
