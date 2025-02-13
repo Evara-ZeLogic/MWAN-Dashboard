@@ -4,13 +4,23 @@ import { PMOClient } from "../../helpers/client";
 export const getAllProjects = createAsyncThunk(
   "pmoProjects/getAllProjects",
   async (filterType, { rejectWithValue }) => {
+    console.log("filterType", filterType);
     try {
       const response = await PMOClient.get(
         `/project${filterType.page ? `?page=${filterType.page}` : ""}${
           filterType.limit ? `&limit=${filterType.limit}` : ""
-        }${filterType.statusId ? `&statusId=${filterType.statusId}` : ""}${
-          filterType.startDate ? `&startDate=${filterType.startDate}` : ""
-        }${filterType.endDate ? `&endDate=${filterType.endDate}` : ""}`
+        }${
+          filterType.mainSectionId
+            ? `&mainSectionId=${filterType.mainSectionId}`
+            : ""
+        }${filterType.statusId ? `&statusId=${filterType.statusId}` : ""}
+        ${
+          filterType.contractClassificationId
+            ? `&contractClassificationId=${filterType.contractClassificationId}`
+            : ""
+        }${filterType.startDate ? `&startDate=${filterType.startDate}` : ""}${
+          filterType.endDate ? `&endDate=${filterType.endDate}` : ""
+        }`
       );
       return response.data;
     } catch (error) {

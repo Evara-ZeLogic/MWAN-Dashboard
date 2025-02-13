@@ -9,7 +9,7 @@ import filter from "../../src/assets/headerIcons/filter.png";
 import validation from "../../src/assets/headerIcons/validation.png";
 import hide from "../../src/assets/headerIcons/hide.png";
 import FinancialPerspective from "../components/dashboardView/dashboardTabs/financePerspective/FinancialPerspective.jsx";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getAllProjects,
   getProjectSummary,
@@ -30,6 +30,8 @@ import {
 
 const DashboardView = () => {
   const dispatch = useDispatch();
+  const { selectedMainSection } = useSelector((state) => state.filterType);
+  console.log("llll", selectedMainSection);
   const [tabValue, setTabValue] = useState(0);
   function handleTabChange(event, value) {
     setTabValue(value);
@@ -48,7 +50,7 @@ const DashboardView = () => {
       // page: 1,
       // limit: 1,
       // statusId: 1,
-      // mainSectionId:1,
+      // mainSectionId: selectedMainSection === "الكل" ? "" : selectedMainSection,
       // contractClassificationId:1,
       // startDate: "2025-01-29",
       // endDate: "2025-02-29",
@@ -64,7 +66,7 @@ const DashboardView = () => {
     dispatch(countByStrategicObjective(filterType));
     dispatch(countByCoordinator(filterType));
     dispatch(countByExecutiveManagement(filterType));
-  }, [dispatch]);
+  }, [dispatch, selectedMainSection]);
   return (
     <>
       <div className="w-full flex items-center justify-between border-b-[1px] border-[#414141] px-2">

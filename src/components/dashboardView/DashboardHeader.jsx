@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { MenuItem, Select } from "@mui/material";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import {
-  contractClassification,
-  mainSections,
-  projectStatus,
-} from "../../data/pmo-data";
+import { useDispatch, useSelector } from "react-redux";
+import { selectMainSection } from "../../store/filterType/filterTypeSlice";
 
 const DashboardHeader = () => {
+  const dispatch = useDispatch();
+
+  const { mainSections, statuses, contractClassifications } = useSelector(
+    (state) => state.filterType
+  );
+  const [selectedSection, setSelectedSection] = useState("");
+  const [selectedProjectStatus, setSelectedProjectStatus] = useState("");
+  const [selectedContractClassification, setSelectedContractClassification] =
+    useState("");
+
+  const mainSectionsWithAll = [{ id: "الكل", name: "الكل" }, ...mainSections];
+  const projectStatusWithAll = [{ id: "الكل", name: "الكل" }, ...statuses];
+  const contractClassificationWithAll = [
+    { id: "الكل", name: "الكل" },
+    ...contractClassifications,
+  ];
   return (
     <header className="flex justify-between">
       <section>
@@ -24,9 +37,12 @@ const DashboardHeader = () => {
           <Select
             labelId="section-label"
             id="section"
-            value={
-              mainSections.some((option) => option.id === "الكل") ? "الكل" : ""
-            }
+            value={selectedSection}
+            onChange={(e) => {
+              setSelectedSection(e.target.value);
+              dispatch(selectMainSection(e.target.value));
+              console.log("first", e.target.value);
+            }}
             sx={{
               fontFamily: "Cairo",
               fontSize: "12px",
@@ -40,7 +56,7 @@ const DashboardHeader = () => {
               },
             }}
           >
-            {mainSections?.map((option) => (
+            {mainSectionsWithAll?.map((option) => (
               <MenuItem
                 key={option.id}
                 value={option.id}
@@ -86,11 +102,8 @@ const DashboardHeader = () => {
             labelId="section-label"
             id="section"
             label="حالة المشاريع"
-            value={
-              projectStatus.some((option) => option.id === "حالة المشاريع")
-                ? "حالة المشاريع"
-                : ""
-            }
+            value={selectedProjectStatus}
+            onChange={(e) => setSelectedProjectStatus(e.target.value)}
             sx={{
               fontFamily: "Cairo",
               fontSize: "12px",
@@ -103,7 +116,7 @@ const DashboardHeader = () => {
               },
             }}
           >
-            {projectStatus?.map((option) => (
+            {projectStatusWithAll?.map((option) => (
               <MenuItem
                 key={option.id}
                 value={option.id}
@@ -120,13 +133,8 @@ const DashboardHeader = () => {
             labelId="section-label"
             id="section"
             label="تصنيف التعاقد"
-            value={
-              contractClassification.some(
-                (option) => option.id === "تصنيف التعاقد"
-              )
-                ? "تصنيف التعاقد"
-                : ""
-            }
+            value={selectedContractClassification}
+            onChange={(e) => setSelectedContractClassification(e.target.value)}
             sx={{
               fontFamily: "Cairo",
               fontSize: "12px",
@@ -139,7 +147,7 @@ const DashboardHeader = () => {
               },
             }}
           >
-            {contractClassification?.map((option) => (
+            {contractClassificationWithAll?.map((option) => (
               <MenuItem
                 key={option.id}
                 value={option.id}

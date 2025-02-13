@@ -42,9 +42,23 @@ const filterTypeSlice = createSlice({
   initialState: {
     loading: false,
     mainSections: [],
+    selectedMainSection: {},
     statuses: [],
+    selectedStatus: {},
     contractClassifications: [],
+    selectedContractClassification: {},
     error: null,
+  },
+  reducers: {
+    selectMainSection: (state, action) => {
+      state.selectedMainSection = action.payload;
+    },
+    selectStatus: (state, action) => {
+      state.selectedStatus = action.payload;
+    },
+    selectContractClassification: (state, action) => {
+      state.selectedContractClassification = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -80,4 +94,6 @@ const filterTypeSlice = createSlice({
       });
   },
 });
+export const { selectMainSection, selectStatus, selectContractClassification } =
+  filterTypeSlice.actions;
 export default filterTypeSlice.reducer;
