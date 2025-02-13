@@ -1,7 +1,6 @@
 import React from "react";
 import ChartsCard from "../../dashboardChartCards/ChartsCard";
 import LineBarChart from "../../dashboardChartCards/charts/LineBarChart";
-import { projectWallet } from "../../../../data/pmo-data";
 import { useSelector } from "react-redux";
 
 const DistributionComboChart = () => {

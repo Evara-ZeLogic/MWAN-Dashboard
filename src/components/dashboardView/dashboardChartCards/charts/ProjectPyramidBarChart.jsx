@@ -94,7 +94,8 @@ export default function ProjectPyramidBarChart({ chartData }) {
           dataKey="background"
           radius={[8, 8, 8, 8]}
           shape={(props) => {
-            const { y, height } = props;
+            const { y } = props;
+            // const { y, height } = props;
             return (
               <rect
                 x={100}
@@ -114,7 +115,8 @@ export default function ProjectPyramidBarChart({ chartData }) {
           dataKey="value"
           radius={[8, 8, 8, 8]}
           shape={(props) => {
-            const { x, y, width, height } = props;
+            const { x, y, width } = props;
+            // const { x, y, width, height } = props;
             return (
               <rect
                 x={x - width / 2}
